@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en,ar">
+
+<head>
+    <meta charset="utf-8">
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400&display=swap');
+        * {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+  section {
+    padding: 100px 180px;
+  }
+  .p,h3{
+    font-family: 'Cairo', sans-serif;
+  }
+  header {
+    background-color: rgb(32, 32, 32);
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 200px;
+  }
+  
+  .logo {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.8em;
+   
+  }
+  
+  .navigation a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 1.1em;
+    font-weight: 500;
+    padding-left: 30px;
+    padding-right: 120px;
+  
+  }
+  
+  .navigation a:hover {
+    color: rgb(83, 83, 83);
+  }
+
+  .main {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-image: url('/MyStore/MyStore/images/background.jpeg'); background-repeat: no-repeat; background-size: cover; background-position: center center;
+    background-position: center;
+    background-size: cover;
+    display: flex;justify-content: space-between
+  }
+  #home{
+    transform: translateX(100px);
+  }
+  #image_home{
+transform: translateX(240);
+transition: 0.8s ease;
+  }
+  #image_home:hover{
+    transform: scale(1.111);
+  }
+  
+  .main h2 {
+    color: rgb(238, 197, 15);
+    font-size: 1.4em;
+    font-weight: 500px;
+  }
+  
+  .main h2 span {
+    font-size: 2.5em;
+    font-weight: 600px;
+  }
+  
+  .main h3 {
+    color: cornsilk;
+    margin-top: 8px;
+    margin-bottom: 10px;
+  }
+  .main_btn {
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 600;
+    display: inline-block;
+    padding: 0.5375em 1.1875em;
+    letter-spacing: 0.5px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    transition: 0.8s ease;
+  }
+
+  .main_btn:hover {
+    background-color: rgb(7, 1, 53);
+    transform: scale(1.11);
+  }
+  .Whyselect {
+    width: 100%;
+    background-image: url('/MyStore/MyStore/images/background.jpeg'); background-repeat: no-repeat; background-size: cover; background-position: center center;
+    /*background-image: linear-gradient(rgb(207, 206, 206rgb(255, 255, 255)16));*/
+    
+  }
+  .title {
+    font-family: 'Cairo', sans-serif;
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    font-size: 1.8em;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+  .content {
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .select_card {
+    background-color: white;
+    width: 20em;
+    transition: 0.8s ease;
+    box-shadow: 0 5px 25px rgba(1 1 1 / 50%);
+    border-radius: 10px;
+    padding: 25px;
+    margin: 15px;
+  }
+  .select_card:hover {
+    background-color: rgb(250, 249, 249);
+    transform: scale(1.111);
+  }
+  .Whyselect_info {
+    text-align: center;
+  }
+  .Whyselect_info h3 {
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 700;
+    color: rgb(0, 0, 0);
+    margin: 18px;
+  }
+    </style>
+    <title>MyStore</title>
+</head>
+
+<body>
+    <header>
+        <a href="#" class="logo">MyStore</a>
+        <nav class="navigation">
+            <a href="#Login">Login</a>
+        </nav>
+    </header>
+
+    <section class="main">
+        <div id="home">
+            <h2>مرحبا بك في<br><span>MyStore</span></h2>
+            <h3>يمكنك انشاء متجرك الخاص </h3>
+            <a href="#select" class="main_btn">انشئ متجرك الخاص الان</a>
+            
+        </div>
+        <img id="image_home" src="/MyStore//MyStore/images/home1.png">
+    </section>
+
+
+    <section class="Whyselect" id=select>
+        <h2 class="title">MyStore لماذا تختار</h2>
+        <div class="content">
+            <div class="select_card">
+                <div class="select-image">
+                    <img src="/MyStore/MyStore/images/report.png" height="220px" width="270px">
+                </div>
+                <div class="Whyselect_info">
+                    <h3>تقارير يومية</h3>
+                    <p>
+                     يمكنك الحصول على معلومات <br>
+                     التي من خلالها يمكن معرفة جودة واداء المتجر 
+
+                    </p>
+                </div>
+            </div>
+            <div class="select_card">
+                <div class="select-image">
+                    <img src="/MyStore/MyStore/images/design.png" height="220px" width="270px">
+                </div>
+                <div class="Whyselect_info">
+                    <h3>التصميم المناسب</h3>
+                    <p>
+                       اختيار التصميم والاسلوب والالوان<br>
+                       المناسبه لمتجرك
+                    </p>
+                </div>
+            </div>
+            <div class="select_card">
+                <div class="select-image">
+                    <img src="/MyStore/MyStore/images/easy.png" height="220px" width="270px">
+                </div>
+                <div class="Whyselect_info">
+                    <h3>سهولة الاستخدام</h3>
+                    <p>
+                      سهوله انشاء متجرك الخاص <br>
+                      دون التعامل مع لغات الحاسب الالي
+
+                    </p>
+                </div>
+            </div>
+            <div class="select_card">
+                <div class="select-image">
+                    <img src="" height="220px" width="270px">
+                </div>
+                <div class="Whyselect_info">
+                    <h3></h3>
+                    <p>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
