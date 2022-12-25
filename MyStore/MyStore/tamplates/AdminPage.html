@@ -1,14 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet" />
+    <title>Admin Page</title>
 </head>
 
 <body>
     <section class="main">
         <div class="v9_328"></div>
-        <div class="v12_766">
+        <div class="summary">
             <div class="v9_309"></div>
             <div class="v9_316"></div>
             <div class="v9_366"></div>
@@ -19,7 +24,7 @@
                 class="v9_678">SR</span><span class="v9_679">427.20</span><span class="v9_680">الطلبات</span><span
                 class="v9_681">5</span><span class="v9_682">الزيارات</span><span class="v9_683">0</span>
         </div>
-        <div class="v12_767">
+        <div class="Orders">
             <div class="v9_380"></div>
             <div class="v9_381"></div>
             <div class="v9_382"></div>
@@ -52,66 +57,78 @@
             </div>
             <div class="v9_420"></div>
             <div class="v9_423"></div>
-            <div class="v9_424"></div>
-            <div class="v9_427"></div>
-            <div class="v9_431"></div>
-            <div class="v9_434"></div>
-            <div class="v9_437"></div>
-            <div class="v9_440"></div>
-            <div class="v9_443"></div>
-            <div class="v9_447"></div>
-            <div class="v9_450"></div>
-            <div class="v9_453"></div>
-            <div class="v9_458"></div>
-            <div class="v9_464"></div>
-            <div class="v12_769">
-                <div class="v9_379"></div><span class="v9_687">رقم الطلب</span><span class="v9_688">العميل</span><span
-                    class="v9_689">تاريخ الطلب</span><span class="v9_690">تاريخ التعديل</span><span
-                    class="v9_691">المصدر</span><span class="v9_692">الشحن</span><span class="v9_693">الدفع</span><span
-                    class="v9_694">الملاحظات</span><span class="v9_695">حالة الطلب</span><span class="v9_696">حالة
-                    الدفع</span><span class="v9_697">المجموع</span>
-            </div><span class="v9_698">18325828</span><span class="v9_699">مشعل سعد</span><span
-                class="v9_700">2022/12/19</span><span class="v9_701">منذ 17 ساعة</span><span class="v9_702">المتجر
-                الإلكتروني</span><span class="v9_703">مندوب</span><span class="v9_704">تحويل بنكي</span><span
-                class="v9_705">قيد المراجعة</span><span class="v9_706">جديد</span><span class="v9_707">غير
-                مدفوع</span><span class="v9_708">100.00 SAR</span><span class="v9_686">الطلبات الجديدة</span>
+
+            <div class="OrderTable">
+                <div class="v9_379"></div>
+                <span class="v9_687">رقم الطلب</span>
+                <span class="v9_688">العميل</span>
+                <span class="v9_689">تاريخ الطلب</span>
+                <span class="v9_690">تاريخ التعديل</span>
+                <span class="v9_691">المصدر</span>
+                <span class="v9_692">الشحن</span>
+                <span class="v9_693">الدفع</span>
+                <span class="v9_694">الملاحظات</span>
+                <span class="v9_695">حالة الطلب</span>
+                <span class="v9_696">حالةالدفع</span>
+                    <span class="v9_697">المجموع</span>
+            </div>
+            <span class="v9_698">18325828</span>
+            <span class="v9_699">مشعل سعد</span>
+            <span class="v9_700">2022/12/19</span>
+            <span class="v9_701">منذ 17 ساعة</span>
+            <span class="v9_702">المتجرالإلكتروني</span>
+            <span class="v9_703">مندوب</span>
+            <span class="v9_704">تحويل بنكي</span>
+            <span class="v9_705">قيد المراجعة</span>
+            <span class="v9_706">جديد</span>
+            <span class="v9_707">غير
+                مدفوع</span><span class="v9_708">100.00 SAR</span>
+            <span class="v9_686">الطلبات الجديدة</span>
         </div>
-        <div class="v48_616">
-            <div class="v48_617"></div>
-            <div class="v48_618">
+        <div class="SideBar">
+            <div class="SideBarBackground"></div>
+            <div class="MenuButtonBackground">
+               
                 <div class="v48_619">
                     <div class="v48_620"></div>
                 </div>
-                <div class="v48_621"></div><span class="v48_622">الرئيسية</span>
+                <div class="v48_621"></div>
+                <a class="Homelink" href="/AdminPage">الرئيسية</a> 
             </div>
-            <div class="v48_623">
+            <div class="AnalysisButton">
                 <div class="v48_624">
                     <div class="v48_625"></div>
-                </div><span class="v48_626">التحليلات</span>
+                </div>
+                <a class="Analyticslink" href="/analytics">التحليلات</a>
             </div>
-            <div class="v48_627">
-                <div class="v48_628"></div><span class="v48_629">الطلبات</span>
+            <div class="ordersButton">
+                <div class="v48_628"></div>
+                <a class="orderslink" href="/orders">الطلبات</a>
             </div>
-            <div class="v48_630">
-                <div class="v48_631"></div><span class="v48_632">المنتجات</span>
+            <div class="ProductsButton">
+                <div class="v48_631"></div>
+                <a class="Productslink" href="/Products">المنتجات</a>
             </div>
-            <div class="v48_633">
-                <div class="v48_634"></div><span class="v48_635">العملاء</span>
+            <div class="CustomersButton">
+                <div class="v48_634"></div>
+                <a class="Customerslink" href="/Customers">العملاء</a>
             </div>
-            <div class="v48_636">
-                <div class="v48_637"></div><span class="v48_638">خيارات تصميم المتجر</span>
+            <div class="DesignButton">
+                <div class="v48_637"></div>
+                <a class="designlink" href="Design">خيارات تصميم المتجر</a>
             </div>
-            <div class="v48_639">
-                <div class="v48_640"></div><span class="v48_641">الإعدادات</span>
+            <div class="SettingButton">
+                <div class="v48_640"></div>
+                <a class="settinglink" href="/Setting">الإعدادات</a>
             </div>
-            <div class="v48_642">
+            <div class="StoreView">
                 <div class="v48_643"></div>
                 <div class="v48_644"></div><span class="v48_645">MyStore</span><span class="v48_646">عرض المتجر</span>
                 <div class="v48_647"></div>
             </div>
         </div>
         <div class="v51_796">
-            <div class="v51_797"></div>
+            <div class="header"></div>
             <div class="v51_798">
                 <div class="v51_799">
                     <div class="v51_800">
@@ -127,10 +144,12 @@
             </div><span class="v51_807">MyStore
             </span>
         </div>
-    </div>
+        </div>
 </body>
 
-</html> <br /><br />
+
+</html>
+
 <style>
     * {
         box-sizing: border-box;
@@ -162,10 +181,10 @@
         overflow: hidden;
     }
 
-    .v12_766 {
+    .summary {
         width: 757px;
         height: 177px;
-        background: url("../images/v12_766.png");
+        background: url("../images/summary.png");
         background-repeat: no-repeat;
         background-position: center center;
         background-size: cover;
@@ -193,16 +212,21 @@
         border-bottom-right-radius: 4px;
         overflow: hidden;
     }
+
     .main {
-    width: 159.3%;
-    min-height: 132vh;
-    display: flex;
-    align-items: center;
-    background-image: url('/MyStore/MyStore/images/HomePageImages/background.jpeg'); background-repeat: no-repeat; background-size: cover; background-position: center center;
-    background-position: center;
-    background-size: cover;
-    display: flex;justify-content: space-between
-  }
+        width: 159.3%;
+        min-height: 132vh;
+        display: flex;
+        align-items: center;
+        background-image: url('');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        background-position: center;
+        background-size: cover;
+        display: flex;
+        justify-content: space-between
+    }
 
     .v9_316 {
         width: 114px;
@@ -399,10 +423,10 @@
         text-align: center;
     }
 
-    .v12_767 {
+    .Orders {
         width: 879px;
         height: 211px;
-        background: url("../images/v12_767.png");
+        background: url("../images/Orders.png");
         background-repeat: no-repeat;
         background-position: center center;
         background-size: cover;
@@ -783,145 +807,12 @@
         overflow: hidden;
     }
 
-    .v9_424 {
-        width: 878px;
-        height: 16px;
-        background: url("../images/v9_424.png");
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: cover;
-        opacity: 1;
-        position: absolute;
-        top: 183px;
-        left: 0px;
-        overflow: hidden;
-    }
 
-    .v9_427 {
-        width: 73px;
-        height: 1px;
-        background: rgba(224, 224, 224, 1);
-        opacity: 1;
-        position: absolute;
-        top: 210px;
-        left: 805px;
-        overflow: hidden;
-    }
 
-    .v9_431 {
-        width: 56px;
-        height: 1px;
-        background: rgba(224, 224, 224, 1);
-        opacity: 1;
-        position: absolute;
-        top: 210px;
-        left: 749px;
-        overflow: hidden;
-    }
-
-    .v9_434 {
-        width: 82px;
-        height: 1px;
-        background: rgba(224, 224, 224, 1);
-        opacity: 1;
-        position: absolute;
-        top: 210px;
-        left: 667px;
-        overflow: hidden;
-    }
-
-    .v9_437 {
-        width: 82px;
-        height: 1px;
-        background: rgba(224, 224, 224, 1);
-        opacity: 1;
-        position: absolute;
-        top: 210px;
-        left: 585px;
-        overflow: hidden;
-    }
-
-    .v9_440 {
-        width: 56px;
-        height: 1px;
-        background: rgba(224, 224, 224, 1);
-        opacity: 1;
-        position: absolute;
-        top: 210px;
-        left: 529px;
-        overflow: hidden;
-    }
-
-    .v9_443 {
-        width: 57px;
-        height: 1px;
-        background: rgba(224, 224, 224, 1);
-        opacity: 1;
-        position: absolute;
-        top: 210px;
-        left: 472px;
-        overflow: hidden;
-    }
-
-    .v9_447 {
-        width: 58px;
-        height: 1px;
-        background: rgba(224, 224, 224, 1);
-        opacity: 1;
-        position: absolute;
-        top: 210px;
-        left: 414px;
-        overflow: hidden;
-    }
-
-    .v9_450 {
-        width: 70px;
-        height: 1px;
-        background: rgba(224, 224, 224, 1);
-        opacity: 1;
-        position: absolute;
-        top: 210px;
-        left: 344px;
-        overflow: hidden;
-    }
-
-    .v9_453 {
-        width: 143px;
-        height: 1px;
-        background: rgba(224, 224, 224, 1);
-        opacity: 1;
-        position: absolute;
-        top: 210px;
-        left: 201px;
-        overflow: hidden;
-    }
-
-    .v9_458 {
-        width: 141px;
-        height: 1px;
-        background: rgba(224, 224, 224, 1);
-        opacity: 1;
-        position: absolute;
-        top: 210px;
-        left: 60px;
-        overflow: hidden;
-    }
-
-    .v9_464 {
-        width: 60px;
-        height: 1px;
-        background: rgba(224, 224, 224, 1);
-        opacity: 1;
-        position: absolute;
-        top: 210px;
-        left: 0px;
-        overflow: hidden;
-    }
-
-    .v12_769 {
+    .OrderTable {
         width: 878px;
         height: 60px;
-        background: url("../images/v12_769.png");
+        background: url("../images/OrderTable.png");
         background-repeat: no-repeat;
         background-position: center center;
         background-size: cover;
@@ -1245,10 +1136,10 @@
         text-align: right;
     }
 
-    .v48_616 {
+    .SideBar {
         width: 271px;
         height: 800px;
-        background: url("../images/v48_616.png");
+        background: url("../images/SideBar.png");
         background-repeat: no-repeat;
         background-position: center center;
         background-size: cover;
@@ -1259,7 +1150,7 @@
         overflow: hidden;
     }
 
-    .v48_617 {
+    .SideBarBackground {
         width: 271px;
         height: 800px;
         background: rgba(73, 178, 114, 1);
@@ -1270,10 +1161,10 @@
         overflow: hidden;
     }
 
-    .v48_618 {
+    .MenuButtonBackground {
         width: 245px;
         height: 45px;
-        background: url("../images/v48_618.png");
+        background: url("../images/MenuButtonBackground.png");
         background-repeat: no-repeat;
         background-position: center center;
         background-size: cover;
@@ -1320,7 +1211,7 @@
         overflow: hidden;
     }
 
-    .v48_622 {
+    .Homelink {
         width: 47px;
         color: rgba(255, 255, 255, 1);
         position: absolute;
@@ -1333,10 +1224,10 @@
         text-align: right;
     }
 
-    .v48_623 {
+    .AnalysisButton {
         width: 77px;
         height: 21px;
-        background: url("../images/v48_623.png");
+        background: url("../images/AnalysisButton.png");
         background-repeat: no-repeat;
         background-position: center center;
         background-size: cover;
@@ -1368,7 +1259,7 @@
         left: 0px;
     }
 
-    .v48_626 {
+    .Analyticslink {
         width: 50px;
         color: rgba(255, 255, 255, 1);
         position: absolute;
@@ -1381,10 +1272,10 @@
         text-align: right;
     }
 
-    .v48_627 {
+    .ordersButton {
         width: 69px;
         height: 21px;
-        background: url("../images/v48_627.png");
+        background: url("../images/ordersButton.png");
         background-repeat: no-repeat;
         background-position: center center;
         background-size: cover;
@@ -1405,7 +1296,7 @@
         left: 53px;
     }
 
-    .v48_629 {
+    .orderslink {
         width: 42px;
         color: rgba(255, 255, 255, 1);
         position: absolute;
@@ -1418,10 +1309,10 @@
         text-align: right;
     }
 
-    .v48_630 {
+    .ProductsButton {
         width: 78px;
         height: 21px;
-        background: url("../images/v48_630.png");
+        background: url("../images/ProductsButton.png");
         background-repeat: no-repeat;
         background-position: center center;
         background-size: cover;
@@ -1442,7 +1333,7 @@
         left: 62px;
     }
 
-    .v48_632 {
+    .Productslink {
         width: 52px;
         color: rgba(255, 255, 255, 1);
         position: absolute;
@@ -1455,10 +1346,10 @@
         text-align: right;
     }
 
-    .v48_633 {
+    .CustomersButton {
         width: 87px;
         height: 21px;
-        background: url("../images/v48_633.png");
+        background: url("../images/CustomersButton.png");
         background-repeat: no-repeat;
         background-position: center center;
         background-size: cover;
@@ -1479,7 +1370,7 @@
         left: 71px;
     }
 
-    .v48_635 {
+    .Customerslink {
         width: 60px;
         color: rgba(255, 255, 255, 1);
         position: absolute;
@@ -1492,10 +1383,10 @@
         text-align: right;
     }
 
-    .v48_636 {
+    .DesignButton {
         width: 135px;
         height: 21px;
-        background: url("../images/v48_636.png");
+        background: url("../images/DesignButton.png");
         background-repeat: no-repeat;
         background-position: center center;
         background-size: cover;
@@ -1516,7 +1407,7 @@
         left: 119px;
     }
 
-    .v48_638 {
+    .designlink {
         width: 108px;
         color: rgba(255, 255, 255, 1);
         position: absolute;
@@ -1529,10 +1420,10 @@
         text-align: right;
     }
 
-    .v48_639 {
+    .SettingButton {
         width: 79px;
         height: 21px;
-        background: url("../images/v48_639.png");
+        background: url("../images/SettingButton.png");
         background-repeat: no-repeat;
         background-position: center center;
         background-size: cover;
@@ -1553,7 +1444,7 @@
         left: 63px;
     }
 
-    .v48_641 {
+    .settinglink {
         width: 52px;
         color: rgba(255, 255, 255, 1);
         position: absolute;
@@ -1566,10 +1457,10 @@
         text-align: right;
     }
 
-    .v48_642 {
+    .StoreView {
         width: 183px;
         height: 64px;
-        background: url("../images/v48_642.png");
+        background: url("../images/StoreView.png");
         background-repeat: no-repeat;
         background-position: center center;
         background-size: cover;
@@ -1662,7 +1553,7 @@
         overflow: hidden;
     }
 
-    .v51_797 {
+    .header {
         width: 100%;
         height: 80px;
         background: rgba(255, 255, 255, 1);
