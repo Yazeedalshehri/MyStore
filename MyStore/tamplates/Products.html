@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Products</title>
+    
+        <link
+          href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
+          rel="stylesheet"
+        />
+        <link rel="stylesheet" href="/MyStore//Styles/ProductsStyles.css" />
+      </head>
+<body>
+     <!-- ################### Side Bar Start #######################-->
+     <div class="container">
+        <aside>
+          <div class="top">
+            <div class="logo">
+              <img src="/MyStore/static/images/Logo.png" alt="Logo" />
+              <h2>MyStore</h2>
+            </div>
+            <div class="close" id="close-btn">
+              <span class="material-icons-sharp"> close </span>
+            </div>
+          </div>
+  
+          <div class="sidebar">
+            <a href="/MyStore/tamplates/AdminPage.html" >
+              <span class="material-icons-sharp"> dashboard </span>
+              <h3>Dashboard</h3>
+            </a>
+            <a href="/MyStore/tamplates/Customers.html" >
+              <span class="material-icons-sharp"> person_outline </span>
+              <h3>Customers</h3>
+            </a>
+            <a href="/MyStore/tamplates/Orders.html" >
+              <span class="material-icons-sharp"> receipt_long </span>
+              <h3>Orders</h3>
+            </a>
+            <a href="/MyStore/tamplates/Analytics.html">
+              <span class="material-icons-sharp"> insights </span>
+              <h3>Analytics</h3>
+            </a>
+            
+            <a href="/MyStore/tamplates/Products.html" class="active">
+              <span class="material-icons-sharp"> inventory </span>
+              <h3>Products</h3>
+            </a>
+            <a href="/anon-ecommerce-website-master/index.html">
+              <span class="material-icons-sharp">
+                preview
+                </span>
+              <h3>View Store</h3>
+            </a>
+            <a href="/MyStore/tamplates/Settings.html" >
+              <span class="material-icons-sharp"> settings </span>
+              <h3>Settings</h3>
+            </a>
+            <a href="#">
+              <span class="material-icons-sharp"> add </span>
+              <h3>Add Product</h3>
+            </a>
+            <a href="#">
+              <span class="material-icons-sharp"> logout </span>
+              <h3>Logout</h3>
+            </a>
+          </div>
+        </aside>
+           
+        <!-- ################### Side Bar Finish #######################-->
+
+         
+
+        <main>
+            <h1>Products</h1>
+    
+            
+    
+            <div class="insights">
+                <div class="item add-product">
+                    <div>
+                      <span class="material-icons-sharp"> add </span>
+                      <h3>Add Product</h3>
+                    </div>
+                  </div>
+    
+            
+            </div>
+    
+            <div class="customer-info">
+              <h2>Products </h2>
+              <table id="customer-info--table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Number</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Rate/5</th>
+                  </tr>
+                </thead>
+                <!-- Add tbody here | JS insertion -->
+              </table>
+           
+            </div>
+          </main>
+    
+          <div class="right">
+            <div class="top">
+              <button id="menu-btn">
+                <span class="material-icons-sharp"> menu </span>
+              </button>
+              <div class="theme-toggler">
+                <span class="material-icons-sharp active"> light_mode </span>
+                <span class="material-icons-sharp"> dark_mode </span>
+              </div>
+              <div class="profile">
+                <div class="info">
+                  <p> <b>Yazeed</b></p>
+                  <small class="text-muted">Admin</small>
+                </div>
+                <div class="profile-photo">
+                  <img src="/MyStore/static/images/Logo.png" alt="Profile Picture" />
+                </div>
+              </div>
+            </div>
+
+
+           
+
+          </div>
+        </div>
+</body>
+<script src="CustomerTable.js"></script>
+</html>

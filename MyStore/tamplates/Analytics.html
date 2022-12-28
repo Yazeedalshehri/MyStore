@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Analytics</title>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
+  <link rel="stylesheet" href="/MyStore/Styles/AnalyticsStyle.css" />
+</head>
+
+<body>
+  <!-- ################### Side Bar Start #######################-->
+  <div class="container">
+    <aside>
+      <div class="top">
+        <div class="logo">
+          <img src="/MyStore/static/images/Logo.png" alt="Logo" />
+          <h2>MyStore</h2>
+        </div>
+        <div class="close" id="close-btn">
+          <span class="material-icons-sharp"> close </span>
+        </div>
+      </div>
+
+      <div class="sidebar">
+        <a href="/MyStore/tamplates/index.html" >
+          <span class="material-icons-sharp"> dashboard </span>
+          <h3>Dashboard</h3>
+        </a>
+        <a href="/MyStore/tamplates/Customers.html">
+          <span class="material-icons-sharp"> person_outline </span>
+          <h3>Customers</h3>
+        </a>
+        <a href="/MyStore/tamplates/Orders.html">
+          <span class="material-icons-sharp"> receipt_long </span>
+          <h3>Orders</h3>
+        </a>
+        <a href="/MyStore/tamplates/Analytics.html" class="active">
+          <span class="material-icons-sharp"> insights </span>
+          <h3>Analytics</h3>
+        </a>
+        
+        <a href="/MyStore/tamplates/Products.html">
+          <span class="material-icons-sharp"> inventory </span>
+          <h3>Products</h3>
+        </a>
+        <a href="/anon-ecommerce-website-master/index.html">
+          <span class="material-icons-sharp">
+            preview
+            </span>
+          <h3>View Store</h3>
+        </a>
+        <a href="/MyStore/tamplates/Settings.html" >
+          <span class="material-icons-sharp"> settings </span>
+          <h3>Settings</h3>
+        </a>
+        <a href="#">
+          <span class="material-icons-sharp"> add </span>
+          <h3>Add Product</h3>
+        </a>
+        <a href="#">
+          <span class="material-icons-sharp"> logout </span>
+          <h3>Logout</h3>
+        </a>
+      </div>
+    </aside>
+
+    <!-- ################### Side Bar Finish #######################-->
+
+
+
+    <main>
+      <h1>Analytics</h1>
+
+
+
+      <div class="insights">
+        <!-- SALES -->
+        <div class="sales">
+          <span class="material-icons-sharp"> analytics </span>
+          <div class="middle">
+            <div class="left">
+              <h3>Total Sales</h3>
+              <h1>$25,024</h1>
+            </div>
+            <div class="progress">
+              <svg>
+                <circle cx="38" cy="38" r="36"></circle>
+              </svg>
+              <div class="number">
+                <p>81%</p>
+              </div>
+            </div>
+          </div>
+          <small class="text-muted"> Last 24 hours </small>
+        </div>
+
+        <!-- EXPENSES -->
+        <div class="expenses">
+          <span class="material-icons-sharp"> bar_chart </span>
+          <div class="middle">
+            <div class="left">
+              <h3>Total Expenses</h3>
+              <h1>$14,160</h1>
+            </div>
+            <div class="progress">
+              <svg>
+                <circle cx="38" cy="38" r="36"></circle>
+              </svg>
+              <div class="number">
+                <p>62%</p>
+              </div>
+            </div>
+          </div>
+          <small class="text-muted"> Last 24 hours </small>
+        </div>
+
+        <!-- INCOME -->
+        <div class="income">
+          <span class="material-icons-sharp"> stacked_line_chart </span>
+          <div class="middle">
+            <div class="left">
+              <h3>Total Income</h3>
+              <h1>$10,864</h1>
+            </div>
+            <div class="progress">
+              <svg>
+                <circle cx="38" cy="38" r="36"></circle>
+              </svg>
+              <div class="number">
+                <p>44%</p>
+              </div>
+            </div>
+          </div>
+          <small class="text-muted"> Last 24 hours </small>
+        </div>
+      </div>
+
+      <div class="insights">
+        <!-- SALES -->
+        <div class="sales">
+          <span class="material-icons-sharp">
+            people
+            </span>
+          <div class="middle">
+            <div class="left">
+              <h3>Visits</h3>
+              <h1>452</h1>
+            </div>
+            
+          </div>
+          <small class="text-muted"> Last 24 hours </small>
+        </div>
+
+        <!-- EXPENSES -->
+        <div class="expenses">
+          <span class="material-icons-sharp">
+            local_shipping
+            </span>
+          <div class="middle">
+            <div class="left">
+              <h3>Orders</h3>
+              <h1>103</h1>
+            </div>
+            
+          </div>
+          <small class="text-muted"> Last 24 hours </small>
+        </div>
+
+        <!-- INCOME -->
+        <div class="income">
+          <span class="material-icons-sharp">
+            shopping_cart
+            </span>
+          <div class="middle">
+            <div class="left">
+              <h3>Avarage sales</h3>
+              <h1>$93</h1>
+            </div>
+            
+          </div>
+          <small class="text-muted"> Last 24 hours </small>
+        </div>
+      </div>
+    </main>
+
+    <div class="right">
+      <div class="top">
+        <button id="menu-btn">
+          <span class="material-icons-sharp"> menu </span>
+        </button>
+        <div class="theme-toggler">
+          <span class="material-icons-sharp active"> light_mode </span>
+          <span class="material-icons-sharp"> dark_mode </span>
+        </div>
+        <div class="profile">
+          <div class="info">
+            <p> <b>Yazeed</b></p>
+            <small class="text-muted">Admin</small>
+          </div>
+          <div class="profile-photo">
+            <img src="/MyStore/static/images/Logo.png" alt="Profile Picture" />
+          </div>
+        </div>
+      </div>
+  
+      
+  
+     
+    </div>
+
+  </div>
+ 
+
+
+ 
+
+</body>
+
+<script src="./recent-order-data.js"> </script>
+
+</html>
