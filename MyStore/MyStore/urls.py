@@ -24,4 +24,10 @@ urlpatterns = [
     path('HomePage/',views.HomePage),
     path('HomePage/Register/',views.Register),
     path('HomePage/Login/',views.Login),
+    path('AdminPage/',views.AdminPage),
+    path('AdminPage/Analytics/',views.Analytics),
+    path('AdminPage/Customers/',views.Customers),
+    path('AdminPage/Products/',views.Products),
+    path('AdminPage/Orders/',views.Orders),
+    path('AdminPage/Settings/',views.Settings),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
