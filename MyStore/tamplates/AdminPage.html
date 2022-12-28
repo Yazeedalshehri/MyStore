@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/MyStore/Styles/style.css" />
+    <link rel="stylesheet" href="{% static '/Styles/style.css' %}" />
   </head>
   <body>
      <!-- ################### Side Bar Start #######################-->
@@ -18,7 +18,7 @@
       <aside>
         <div class="top">
           <div class="logo">
-            <img src="/MyStore/static/images/Logo.png" alt="Logo" />
+            <img src="{% static '/images/Logo.png' %}" alt="Logo" />
             <h2>MyStore</h2>
           </div>
           <div class="close" id="close-btn">
