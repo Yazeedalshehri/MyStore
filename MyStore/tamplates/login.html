@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en,ar">
 <head>
@@ -9,7 +10,7 @@
 	<style>
 html,body {
 	height: 100%;
-	background-image: url('/MyStore/images/HomePageImages/background.jpeg'); background-repeat: no-repeat; background-size: cover; background-position: center center;
+	background-image: url("{% static '/images/HomePageImages/background.jpeg' %}"); background-repeat: no-repeat; background-size: cover; background-position: center center;
 }
 
 body.loginpage {
@@ -92,7 +93,7 @@ body.loginpage {
 			<div class="row justify-content-md-center h-100">
 				<div class="card-wrapper">
 					<div class="brand">
-						<a href="Homepage.HTML" ><img src="/MyStore/images/HomePageImages/MyStore.png" alt="logo"></a>
+						<a href="/HomePage" ><img src="{% static '/images/HomePageImages/MyStore.png' %}" alt="logo"></a>
 					</div>
 					<div class="card fat">
 						<div class="card-body">
