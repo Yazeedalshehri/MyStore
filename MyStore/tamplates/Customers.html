@@ -80,15 +80,31 @@
             
     
             <div class="insights">
-                <div class="item add-product">
-                    <div>
-                      <span class="material-icons-sharp"> add </span>
-                      <h3>Add Customer</h3>
-                    </div>
+              <div class="item add-Customer" id="AddCustomerButton" onclick="AddCustomer()">
+                  <div>
+                    <span class="material-icons-sharp"> add </span>
+                    <h3>Add Customer</h3>
                   </div>
-    
+                </div>
+  
+          
+          </div>
+
+          <div class="popup-content" id="PopUpMenu">
+            <span class="material-icons-sharp">
+              add_shopping_cart
+            </span>
+            <span class="material-icons-sharp" id="close" onclick="ClosePopUp()">
+              highlight_off
+            </span>
             
-            </div>
+            <input type="text" name="Name" placeholder="Name">
+            <input type="text" name="Number" placeholder="Number">
+            <input type="text" name="City" placeholder="City">
+            
+            <input type="text" name="Order" placeholder="Order" >
+            <a href="#" class="Add-Customer-button">Add Customer</a>
+          </div>
     
             <div class="customer-info">
               <h2>Customer Information</h2>
@@ -135,4 +151,16 @@
         </div>
 </body>
 <script src="CustomerTable.js"></script>
+<script>
+  function AddCustomer() {
+
+    document.getElementById("PopUpMenu").style.display = "block";
+    document.getElementById("AddCustomerButton").style.display = "none";
+  }
+
+  function ClosePopUp() {
+    document.getElementById("PopUpMenu").style.display = "none";
+    document.getElementById("AddCustomerButton").style.display = "flex";
+  }
+  </script>
 </html>

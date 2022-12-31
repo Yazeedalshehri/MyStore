@@ -389,3 +389,81 @@ main .customer-info {
     color: var(--color-primary);
   }
   /* END Customers Information*/
+
+   /* START ADD PRODUCT POPUP*/
+  
+  /*
+  .Popup-Add-Product{
+    background: rgba(225, 202, 202, 0.021);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: none;
+    
+  }
+ */
+ .popup-content{
+  height: 600px;
+  width: 800px;
+  background: var(--color-background);
+  padding: 20px;
+  border-radius: 20px;
+  position: relative;
+  display: none;
+  
+}
+
+.popup-content > input {
+  margin: 20px auto;
+  display: block ;
+  width: 50%;
+  padding: 8px;
+  border: 1px solid var(--color-light);
+  border-radius: 5px;
+}
+
+
+
+.Add-Customer-button{
+ 
+  font-size: 14px;
+  background: var(--color-primary);
+  width: 150px;
+  height: 60px;
+  padding: 15px;
+ 
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  position: absolute;
+  bottom: 46px;
+  right: 30px;
+}
+
+#close{
+  position: absolute;
+  top: -15px;
+  right: -15px;
+ 
+  
+ 
+}
+
+#PopUp{
+  height: 600px;
+  width: 800px;
+  background: var(--color-background);
+  padding: 20px;
+  border-radius: 20px;
+  position: relative;
+  display: none;
+}
+
+
+/* END OF POPUP STYLE*/
+

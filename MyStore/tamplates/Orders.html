@@ -84,15 +84,32 @@
             
     
             <div class="insights">
-                <div >
-                    <div>
-                      <span class="material-icons-sharp"> add </span>
-                      <h3>Create New Order</h3>
-                    </div>
+              <div div class="item add-order" id="AddOrdersButton" onclick="AddOrders()" >
+                  <div>
+                    <span class="material-icons-sharp"> add </span>
+                    <h3>Create New Order</h3>
                   </div>
-    
+                </div>
+  
+          
+          </div>
+
+          <div class="popup-content" id="PopUpMenu">
+            <span class="material-icons-sharp">
+              add_shopping_cart
+            </span>
+            <span class="material-icons-sharp" id="close" onclick="ClosePopUp()">
+              highlight_off
+            </span>
             
-            </div>
+            <input type="text" name="Order Number" placeholder="Order Number">
+            <input type="text" name="Order Name" placeholder="Order Name">
+            <input type="date" name="Date" placeholder="Date">
+            <input type="text" name="OrderStatus" placeholder="OrderStatus">
+            <input type="text" name="Total" placeholder="Total">
+            <input type="text" name="Details" placeholder="Details">
+            <a href="#" class="Add-Order-button">Add Order</a>
+          </div>
     
             <div class="Orders-list">
               <h2>Orders</h2>
@@ -141,4 +158,16 @@
 </body>
 
 <script src="/constants/recent-order-data.js"> </script>
+<script>
+  function AddOrders() {
+
+    document.getElementById("PopUpMenu").style.display = "block";
+    document.getElementById("AddOrdersButton").style.display = "none";
+  }
+
+  function ClosePopUp() {
+    document.getElementById("PopUpMenu").style.display = "none";
+    document.getElementById("AddOrdersButton").style.display = "flex";
+  }
+</script>
 </html>

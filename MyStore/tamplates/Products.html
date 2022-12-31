@@ -80,14 +80,34 @@
             
     
             <div class="insights">
-                <div class="item add-product">
-                    <div>
-                      <span class="material-icons-sharp"> add </span>
-                      <h3>Add Product</h3>
-                    </div>
-                  </div>
-    
-            
+              <div class="item add-product" id="AddItemButton" onclick="AddProduct()">
+                <div>
+                  <span class="material-icons-sharp"> add </span>
+                  <h3>Add Product</h3>
+      
+                </div>
+      
+              </div>
+      
+      
+              <div class="popup-content" id="PopUpMenu">
+                <span class="material-icons-sharp">
+                  add_shopping_cart
+                </span>
+                <span class="material-icons-sharp" id="close" onclick="ClosePopUp()">
+                  highlight_off
+                </span>
+                
+                <input type="file" id="img" name="img" accept="image/*" placeholder="Upload Product Image">
+                <input type="text" name="Name" placeholder="Name">
+                <input type="text" name="Number" placeholder="Number">
+                <input type="number" name="Quantity" placeholder="Quantity">
+                <input type="text" name="Price" placeholder="Price">
+                <input type="text" name="Description" placeholder="Description" id="Description">
+                <a href="#" class="Add-Product-button">Add Product</a>
+              </div>
+      
+      
             </div>
     
             <div class="customer-info">
@@ -135,4 +155,18 @@
         </div>
 </body>
 <script src="CustomerTable.js"></script>
+<script>
+  function AddProduct() {
+
+    document.getElementById("PopUpMenu").style.display = "block";
+    document.getElementById("AddItemButton").style.display = "none";
+  }
+
+  function ClosePopUp() {
+    document.getElementById("PopUpMenu").style.display = "none";
+    document.getElementById("AddItemButton").style.display = "flex";
+  }
+
+
+</script>
 </html>
