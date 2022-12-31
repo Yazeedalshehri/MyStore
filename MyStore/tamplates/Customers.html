@@ -19,7 +19,7 @@
         <aside>
           <div class="top">
             <div class="logo">
-              <img src="/MyStore/static/images/Logo.png" alt="Logo" />
+              <img src="{% static '/images/Logo.png' %}" alt="Logo" />
               <h2>MyStore</h2>
             </div>
             <div class="close" id="close-btn">
@@ -32,20 +32,20 @@
               <span class="material-icons-sharp"> dashboard </span>
               <h3>Dashboard</h3>
             </a>
-            <a href="Customers" class="active">
+            <a href="/AdminPage/Customers" class="active">
               <span class="material-icons-sharp"> person_outline </span>
               <h3>Customers</h3>
             </a>
-            <a href="Orders">
+            <a href="/AdminPage/Orders">
               <span class="material-icons-sharp"> receipt_long </span>
               <h3>Orders</h3>
             </a>
-            <a href="Analytics">
+            <a href="/AdminPage/Analytics">
               <span class="material-icons-sharp"> insights </span>
               <h3>Analytics</h3>
             </a>
             
-            <a href="Products">
+            <a href="/AdminPage/Products">
               <span class="material-icons-sharp"> inventory </span>
               <h3>Products</h3>
             </a>
@@ -55,7 +55,7 @@
                 </span>
               <h3>View Store</h3>
             </a>
-            <a href="Settings" >
+            <a href="/AdminPage/Settings" >
               <span class="material-icons-sharp"> settings </span>
               <h3>Settings</h3>
             </a>
@@ -63,7 +63,7 @@
               <span class="material-icons-sharp"> add </span>
               <h3>Add Product</h3>
             </a>
-            <a href="#">
+            <a href="/HomePage">
               <span class="material-icons-sharp"> logout </span>
               <h3>Logout</h3>
             </a>
