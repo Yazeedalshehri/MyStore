@@ -28,24 +28,24 @@
           </div>
   
           <div class="sidebar">
-            <a href="/AdminPage" >
+            <a href="/{{admin.slug}}/" >
               <span class="material-icons-sharp"> dashboard </span>
               <h3>Dashboard</h3>
             </a>
-            <a href="/AdminPage/Customers" class="active">
+            <a href="/{{admin.slug}}/Customers" class="active">
               <span class="material-icons-sharp"> person_outline </span>
               <h3>Customers</h3>
             </a>
-            <a href="/AdminPage/Orders">
+            <a href="/{{admin.slug}}/Orders">
               <span class="material-icons-sharp"> receipt_long </span>
               <h3>Orders</h3>
             </a>
-            <a href="/AdminPage/Analytics">
+            <a href="/{{admin.slug}}/Analytics">
               <span class="material-icons-sharp"> insights </span>
               <h3>Analytics</h3>
             </a>
             
-            <a href="/AdminPage/Products">
+            <a href="/{{admin.slug}}/Products">
               <span class="material-icons-sharp"> inventory </span>
               <h3>Products</h3>
             </a>
@@ -55,7 +55,7 @@
                 </span>
               <h3>View Store</h3>
             </a>
-            <a href="/AdminPage/Settings" >
+            <a href="/{{admin.slug}}/Settings" >
               <span class="material-icons-sharp"> settings </span>
               <h3>Settings</h3>
             </a>
@@ -135,7 +135,7 @@
               </div>
               <div class="profile">
                 <div class="info">
-                  <p> <b>Yazeed</b></p>
+                  <p> <b>{{admin.username}}</b></p>
                   <small class="text-muted">Admin</small>
                 </div>
                 <div class="profile-photo">
