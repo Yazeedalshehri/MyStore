@@ -24,10 +24,14 @@ urlpatterns = [
     path('HomePage/',views.HomePage, name="homepage"),
     path('HomePage/Register/',views.Register),
     path('HomePage/Login/',views.Login),
-    path('AdminPage/',views.AdminPage),
-    path('AdminPage/Analytics/',views.Analytics),
-    path('AdminPage/Customers/',views.Customers),
-    path('AdminPage/Products/',views.Products),
-    path('AdminPage/Orders/',views.Orders),
-    path('AdminPage/Settings/',views.Settings),
+    path('<slug:slug>/',views.AdminPage , name = "AdminPage"),
+    path('<slug:slug>/Analytics/',views.Analytics),
+    path('<slug:slug>/Customers/',views.Customers),
+    path('<slug:slug>/Products/',views.Products),
+    path('<slug:slug>/Orders/',views.Orders),
+    path('<slug:slug>/Settings/',views.Settings),
+
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)

@@ -28,24 +28,24 @@
           </div>
   
           <div class="sidebar">
-            <a href="/AdminPage" >
+            <a href="/{{admin.slug}}/" >
               <span class="material-icons-sharp"> dashboard </span>
               <h3>Dashboard</h3>
             </a>
-            <a href="/AdminPage/Customers" >
+            <a href="/{{admin.slug}}/Customers" >
               <span class="material-icons-sharp"> person_outline </span>
               <h3>Customers</h3>
             </a>
-            <a href="/AdminPage/Orders" >
+            <a href="/{{admin.slug}}/Orders" >
               <span class="material-icons-sharp"> receipt_long </span>
               <h3>Orders</h3>
             </a>
-            <a href="/AdminPage/Analytics">
+            <a href="/{{admin.slug}}/Analytics">
               <span class="material-icons-sharp"> insights </span>
               <h3>Analytics</h3>
             </a>
             
-            <a href="/AdminPage/Products" class="active">
+            <a href="/{{admin.slug}}/Products" class="active">
               <span class="material-icons-sharp"> inventory </span>
               <h3>Products</h3>
             </a>
@@ -55,7 +55,7 @@
                 </span>
               <h3>View Store</h3>
             </a>
-            <a href="/AdminPage/Settings" >
+            <a href="/{{admin.slug}}/Settings" >
               <span class="material-icons-sharp"> settings </span>
               <h3>Settings</h3>
             </a>
@@ -89,7 +89,7 @@
       
               </div>
       
-      
+            <form  method="POST">{% csrf_token %}
               <div class="popup-content" id="PopUpMenu">
                 <span class="material-icons-sharp">
                   add_shopping_cart
@@ -97,14 +97,15 @@
                 <span class="material-icons-sharp" id="close" onclick="ClosePopUp()">
                   highlight_off
                 </span>
-                
+               
                 <input type="file" id="img" name="img" accept="image/*" placeholder="Upload Product Image">
                 <input type="text" name="Name" placeholder="Name">
-                <input type="text" name="Number" placeholder="Number">
+                <input type="number" name="Number" placeholder="Number">
                 <input type="number" name="Quantity" placeholder="Quantity">
                 <input type="text" name="Price" placeholder="Price">
                 <input type="text" name="Description" placeholder="Description" id="Description">
-                <a href="#" class="Add-Product-button">Add Product</a>
+                <button type="submit" class="Add-Product-button">Add Pr3oduct</button>
+              </form>
               </div>
       
       
@@ -122,6 +123,17 @@
                     <th>Rate/5</th>
                   </tr>
                 </thead>
+                <p>
+                  {% for i in prod %}
+                  <tr>
+                  <td data-label="name">{{ i.PRDname }}</td>
+                  <td data-label="name">{{ i.PRDnumber }}</td>
+                  <td data-label="name">{{ i.quantity }}</td>
+                  <td data-label="name">{{ i.price }}</td>
+                  </tr>          
+                  {% endfor %}
+                </p>
+
                 <!-- Add tbody here | JS insertion -->
               </table>
            
@@ -139,11 +151,11 @@
               </div>
               <div class="profile">
                 <div class="info">
-                  <p> <b>Yazeed</b></p>
+                  <p> <b>{{admin.username}}</b></p>
                   <small class="text-muted">Admin</small>
                 </div>
                 <div class="profile-photo">
-                  <img src="/MyStore/static/images/Logo.png" alt="Profile Picture" />
+                  <img src="{% static '/images/Logo.png' %}" alt="Profile Picture" />
                 </div>
               </div>
             </div>
@@ -154,7 +166,7 @@
           </div>
         </div>
 </body>
-<script src="CustomerTable.js"></script>
+<script src="{% static '/JS/CustomerTable.js' %}"></script>
 <script>
   function AddProduct() {
 
