@@ -125,12 +125,14 @@
                 </thead>
                 <p>
                   {% for i in prod %}
+                  {% if i.Admins.slug == admin.slug %}
                   <tr>
                   <td data-label="name">{{ i.PRDname }}</td>
                   <td data-label="name">{{ i.PRDnumber }}</td>
                   <td data-label="name">{{ i.quantity }}</td>
                   <td data-label="name">{{ i.price }}</td>
-                  </tr>          
+                  </tr>   
+                  {% endif %}       
                   {% endfor %}
                 </p>
 
