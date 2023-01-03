@@ -116,16 +116,16 @@ body.Registerpage {
 
 								<div class="form-group">
 									<label for="password">Password</label>
-									<input id="password" type="password" class="form-control" name="password" required data-eye>
+									<input id="password" type="password" class="form-control" name="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,16}$" required data-eye>
 									<div class="invalid-feedback">
-										Password is required
+										
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="name">Phone Number</label>
-									<input id="name" type="text" class="form-control" name="phonenumber" required autofocus>
+									<input id="name" type="text" class="form-control"  pattern="[0]{1}[5]{1}[0-9]{8}" name="phonenumber" required autofocus>
 									<div class="invalid-feedback">
-										Phone number is required
+									
 									</div>
 								</div>
 

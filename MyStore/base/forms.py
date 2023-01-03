@@ -3,7 +3,15 @@ from . import models
 from django.contrib.auth.models import User
 
 
-class Admins(forms.ModelForm):
+
+class UserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = [ 'username','first_name','last_name','email']
+
+
+
+class AdminsForm(forms.ModelForm):
     class Meta:
         model = models.Admins
-        fields = ['username','email','password','phonenumber']
+        fields = ['email','phonenumber']

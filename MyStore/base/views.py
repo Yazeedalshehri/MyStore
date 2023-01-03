@@ -4,12 +4,24 @@ from django.contrib.auth.forms import UserCreationForm , PasswordChangeForm
 from django.contrib.auth import login , authenticate
 from django.core.paginator import Paginator
 from .models import Admins , product
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import AuthenticationForm
 
 
 def HomePage(request):
     context = {'Admins' : Admins}
     return render(request,"HomePage.html",context)
 
+
+def Login(request):
+    if request.method == 'POST' :
+        username = request.POST['username'] 
+        password = request.POST['password']
+        mydata= Admins.objects.get(slug = username , password = password) 
+        return redirect (AdminPage , slug = mydata.slug )
+        
+    return render(request,"Login.html")
 
 def Register(request ):
     if request.method == 'POST' :
@@ -25,8 +37,6 @@ def Register(request ):
     return render(request,"Register.html")
 
 
-def Login(request):
-    return render(request,"login.html")
 
 def AdminPage(request , slug):
     AdminPage= get_object_or_404(Admins , slug=slug)

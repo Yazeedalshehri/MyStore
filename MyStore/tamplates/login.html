@@ -98,12 +98,12 @@ body.loginpage {
 					<div class="card fat">
 						<div class="card-body">
 							<h4 class="card-title">Login</h4>
-							<form method="POST" class="my-login-validation" novalidate="">
+							<form method="POST" class="my-login-validation" novalidate="">{% csrf_token %}
 								<div class="form-group">
-									<label for="email">E-Mail Address</label>
-									<input id="email" type="email" class="form-control" name="email" value="" required autofocus>
+									<label for="username">Username</label>
+									<input id="username" type="text" class="form-control" name="username" value="" required autofocus>
 									<div class="invalid-feedback">
-										Email is invalid
+										Username is invalid
 									</div>
 								</div>
 
@@ -133,6 +133,7 @@ body.loginpage {
 								</div>
 								<div class="mt-4 text-center">
 									Don't have an account? <a href="/HomePage/Register">Create One</a>
+									
 								</div>
 							</form>
 						</div>
