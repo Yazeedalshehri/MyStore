@@ -15,6 +15,12 @@ def HomePage(request):
     context = {'Admins' : Admins}
     return render(request,"HomePage.html",context)
 
+def UserLogin(request):
+     return render(request,"UserLogin.html")
+
+def Cart(request):
+     return render(request,"CartPage.html")     
+
 
 def Login(request):
     if request.method == 'POST' :
@@ -105,3 +111,6 @@ def Store(request , slug):
     pro=product.objects.all()
     context = {'admin': AdminPage , 'prod': pro}
     return render(request,"carstore.html",context)
+
+
+    
