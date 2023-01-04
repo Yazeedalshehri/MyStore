@@ -7,6 +7,8 @@ from .models import Admins , product
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
+from .forms import AdminsForm
+from django.views.generic import CreateView 
 
 
 def HomePage(request):
@@ -23,17 +25,34 @@ def Login(request):
         
     return render(request,"Login.html")
 
+def signup (request):
+    if request.method == 'POST':
+        form = AdminsForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(AdminPage , slug = form.username)
+    else:
+        form = AdminsForm()
+    return render(request,
+                  'Register.html',
+                  {'form': form}
+
+                  )
+
+
 def Register(request ):
     if request.method == 'POST' :
        username = request.POST['username'] 
        email = request.POST['email'] 
        password = request.POST['password'] 
        phonenumber = request.POST['phonenumber'] 
-       new_admin = Admins(username=username, email=email, password=password,phonenumber=phonenumber)
+       storename = request.POST['storename'] 
+       new_admin = Admins(username=username, email=email, password=password,phonenumber=phonenumber,storename=storename )
        new_admin.save()
-        
+       if request.POST.get('category'):
+            new_admin.category=request.POST.get('category')
+            new_admin.save()
        return redirect (AdminPage , slug = username)
-
     return render(request,"Register.html")
 
 

@@ -122,12 +122,31 @@ body.Registerpage {
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="name">Phone Number</label>
-									<input id="name" type="text" class="form-control"  pattern="[0]{1}[5]{1}[0-9]{8}" name="phonenumber" required autofocus>
+									<label for="Phone Number">Phone Number</label>
+									<input id="phonenumber" type="text" class="form-control"  pattern="[0]{1}[5]{1}[0-9]{8}" name="phonenumber" required autofocus>
 									<div class="invalid-feedback">
 									
 									</div>
 								</div>
+								<div class="form-group">
+									<label for="storename">Store name</label>
+									<input id="storename" type="text" class="form-control"  name="storename" required autofocus>
+									<div class="invalid-feedback">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="category">category :</label>
+									<select id="category" class="form-control" name="category" method="category">
+										<option value="fashion">fashion</option>
+										<option value="Cars">Cars</option>
+										<option value="fitness">fitness</option>
+									  </select>
+									<div class="invalid-feedback">
+									
+									</div>
+								</div>
+								
 
 								<div class="form-group">
 									<div class="custom-checkbox custom-control">
@@ -138,7 +157,7 @@ body.Registerpage {
 										</div>
 									</div>
 								</div>
-
+								
 								<div class="form-group m-0">									
 									<button type="submit" class="btn btn-primary btn-block">
 									Register
