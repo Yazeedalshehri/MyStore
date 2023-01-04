@@ -30,6 +30,7 @@ urlpatterns = [
     path('<slug:slug>/Products/',views.Products),
     path('<slug:slug>/Orders/',views.Orders),
     path('<slug:slug>/Settings/',views.Settings),
+    path('<slug:slug>/store/',views.Store),
 
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 if settings.DEBUG:

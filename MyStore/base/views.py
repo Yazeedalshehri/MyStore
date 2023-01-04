@@ -99,3 +99,9 @@ def Settings(request , slug):
     AdminPage= get_object_or_404(Admins , slug=slug)
     context = {'admin': AdminPage}
     return render(request,"Settings.html",context)
+
+def Store(request , slug):
+    AdminPage= get_object_or_404(Admins , slug=slug)
+    pro=product.objects.all()
+    context = {'admin': AdminPage , 'prod': pro}
+    return render(request,"carstore.html",context)
