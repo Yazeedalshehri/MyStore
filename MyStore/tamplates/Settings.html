@@ -73,6 +73,82 @@
       <!-- ################### Side Bar Finish #######################-->
       <main>
         <h1>Settings</h1>
+        
+
+      <form action="/Create-a-Responsive-Car-Sale-Website-Design-Using-HTML-CSS-And-JavaScript-main/index.html" class="insights" target="_blank">
+
+        <div class="Store-Information" id="StoreSetting" onclick="StoreSettings()">
+          <span class="material-icons-sharp">
+            manage_accounts
+          </span>
+          <div class="middle">
+            <div class="left">
+              <h3>Store-Information</h3>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="popup-content" id="PopUpSettings">
+          <span class="material-icons-sharp">
+            store
+          </span>
+          <span class="material-icons-sharp" id="close" onclick="ClosePopUp()">
+            highlight_off
+          </span>
+
+
+          <input type="text" name="StoreName" placeholder="Store Name">
+          <input type="text" name="email" placeholder="email">
+          <input type="text" name="Phone" placeholder="Phone">
+
+          <a href="#" class="SaveButton">Save</a>
+        </div>
+
+
+        <div class="Store-Themes" id="StoreThemes" onclick="StoreThemes()">
+          <span class="material-icons-sharp">
+            settings_applications
+          </span>
+          <div class="middle">
+            <div class="left">
+              <h3>Store Themes</h3>
+
+            </div>
+
+          </div>
+
+        </div>
+        
+        <div class="popup-content-themes" id="PopUpThemes">
+          <span class="material-icons-sharp">
+            mode_edit
+          </span>
+          <span class="material-icons-sharp" id="close" onclick="ClosePopUp()">
+            highlight_off
+          </span>
+          <input type="text" name="Test" id="test">
+          <label for="img"> Store logo</label>
+          <input type="file" id="logo" name="img" accept="image/*" placeholder="Upload Store Logo">
+          <label for="StoreColor">Store Color</label>
+          <input type="color" id="StoreColor" name="StoreColor">
+          <label for="Catogery">Choose your store type</label>
+          <select name="Catogery" id="Catogery">
+            <option value="deafault">default</option>
+            <option value="cloths">cloths</option>
+            <option value="coffee">coffee</option>
+            <option value="market">market</option>
+            <option value="shoes">shoes</option>
+          </select>
+
+          <input type="submit" class="SaveButton" value="Save" onclick="SaveData()">
+          <a  onclick=>Save</a>
+        </div>
+      
+     
+      </form>
 
        
 
@@ -104,9 +180,49 @@
        
       </div>
     </div>
+    
+  
+  <script>
+    function StoreSettings() {
 
-    <script src="/constants/recent-order-data.js"></script>
+      document.getElementById("PopUpSettings").style.display = "block";
+      document.getElementById("StoreSetting").style.display = "none";
+      document.getElementById("StoreThemes").style.display = "none";
+    }
+
+    function StoreThemes() {
+
+      document.getElementById("PopUpThemes").style.display = "block";
+      document.getElementById("StoreSetting").style.display = "none";
+      document.getElementById("StoreThemes").style.display = "none";
+    }
+
+    function ClosePopUp() {
+      document.getElementById("PopUpSettings").style.display = "none";
+      document.getElementById("PopUpThemes").style.display = "none";
+      document.getElementById("StoreSetting").style.display = "block";
+      document.getElementById("StoreThemes").style.display = "block";
+
+    }
+
+
+    function SaveData(){
+  
+    
+        
+      const test = document.getElementById("test").value;
+      localStorage.setItem("Name",test);
+      const Color = document.getElementById("StoreColor").value;
+      localStorage.setItem("Color",Color);
+
+
+
+
    
-    <script src="/Js/index.js"></script>
+  }
+  </script>
+    
+   
+    
   </body>
 </html>
