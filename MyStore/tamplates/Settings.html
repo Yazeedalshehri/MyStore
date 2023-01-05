@@ -49,7 +49,7 @@
             <span class="material-icons-sharp"> inventory </span>
             <h3>Products</h3>
           </a>
-          <a href="">
+          <a href="/{{admin.slug}}/store">
             <span class="material-icons-sharp">
               preview
               </span>
@@ -75,7 +75,7 @@
         <h1>Settings</h1>
         
 
-      <form action="/Create-a-Responsive-Car-Sale-Website-Design-Using-HTML-CSS-And-JavaScript-main/index.html" class="insights" target="_blank">
+      <form method="POST" action="" class="insights" >{% csrf_token %}
 
         <div class="Store-Information" id="StoreSetting" onclick="StoreSettings()">
           <span class="material-icons-sharp">
@@ -100,18 +100,22 @@
           </span>
 
 
-          <input type="text" name="StoreName" placeholder="Store Name">
+          <input type="text" name="StoreName" placeholder="StoreName" method="StoreName">
           <input type="text" name="email" placeholder="email">
           <input type="text" name="Phone" placeholder="Phone">
 
-          <a href="#" class="SaveButton">Save</a>
+          <input type="submit" class="SaveButton" value="Save" >
+          <a  onclick=>Save</a>
+        </form>
+        
         </div>
-
-
+        
+        <form method="POST" action="" class="insights" >{% csrf_token %}
         <div class="Store-Themes" id="StoreThemes" onclick="StoreThemes()">
           <span class="material-icons-sharp">
             settings_applications
           </span>
+
           <div class="middle">
             <div class="left">
               <h3>Store Themes</h3>
@@ -129,11 +133,12 @@
           <span class="material-icons-sharp" id="close" onclick="ClosePopUp()">
             highlight_off
           </span>
+          
           <input type="text" name="Test" id="test">
           <label for="img"> Store logo</label>
           <input type="file" id="logo" name="img" accept="image/*" placeholder="Upload Store Logo">
           <label for="StoreColor">Store Color</label>
-          <input type="color" id="StoreColor" name="StoreColor">
+          <input type="color" id="StoreColor" name="StoreColor" method="StoreColor">
           <label for="Catogery">Choose your store type</label>
           <select name="Catogery" id="Catogery">
             <option value="deafault">default</option>
@@ -143,7 +148,7 @@
             <option value="shoes">shoes</option>
           </select>
 
-          <input type="submit" class="SaveButton" value="Save" onclick="SaveData()">
+          <input type="submit" class="SaveButton" value="Save" >
           <a  onclick=>Save</a>
         </div>
       
@@ -170,7 +175,7 @@
               <small class="text-muted">Admin</small>
             </div>
             <div class="profile-photo">
-              <img src="/MyStore/static/images/Logo.png" alt="Profile Picture" />
+              <img src="{% static '/images/Logo.png' %}" alt="Profile Picture" />
             </div>
           </div>
         </div>

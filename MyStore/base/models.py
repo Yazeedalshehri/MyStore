@@ -11,6 +11,7 @@ class Admins(models.Model):
     phonenumber = models.CharField(max_length=10)
     storename = models.CharField(max_length=10)
     category= models.CharField(max_length=50)
+    storecolor=models.CharField(max_length=10)
     slug = models.SlugField(blank=True , null=True)
 
     def __str__(self) :

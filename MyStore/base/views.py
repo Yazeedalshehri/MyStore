@@ -104,6 +104,13 @@ def Products(request , slug):
 def Settings(request , slug):
     AdminPage= get_object_or_404(Admins , slug=slug)
     context = {'admin': AdminPage}
+    if request.POST.get('StoreColor'):
+        AdminPage.storecolor=request.POST.get('StoreColor')
+        AdminPage.save()
+    if request.POST.get('StoreName'):
+        AdminPage.storename=request.POST.get('StoreName')
+        AdminPage.save()
+        
     return render(request,"Settings.html",context)
 
 def Store(request , slug):
@@ -112,5 +119,13 @@ def Store(request , slug):
     context = {'admin': AdminPage , 'prod': pro}
     return render(request,"carstore.html",context)
 
+def Cart(request , slug):
+    AdminPage= get_object_or_404(Admins , slug=slug)
+    context = {'admin': AdminPage}
+    return render(request,"CartPage.html",context)
 
+def userlogin(request , slug):
+    AdminPage= get_object_or_404(Admins , slug=slug)
+    context = {'admin': AdminPage}
+    return render(request,"UserLogin.html",context)
     
