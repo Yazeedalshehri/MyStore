@@ -3,7 +3,7 @@ from django.http import request
 from django.contrib.auth.forms import UserCreationForm , PasswordChangeForm
 from django.contrib.auth import login , authenticate
 from django.core.paginator import Paginator
-from .models import Admins , product
+from .models import Admins , product , order
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
@@ -65,7 +65,8 @@ def Register(request ):
 
 def AdminPage(request , slug):
     AdminPage= get_object_or_404(Admins , slug=slug)
-    context = {'admin': AdminPage}
+    ords=order.objects.all()
+    context = {'admin': AdminPage , 'ords' : ords}
     return render(request,"AdminPage.html", context)
 
 def Analytics(request , slug):
@@ -81,7 +82,8 @@ def Customers(request , slug):
 
 def Orders(request , slug):
     AdminPage= get_object_or_404(Admins , slug=slug)
-    context = {'admin': AdminPage}
+    ords=order.objects.all()
+    context = {'admin': AdminPage , 'ords' : ords}
     return render(request,"Orders.html",context)
 
 

@@ -34,3 +34,13 @@ class product(models.Model):
 
      def __str__(self) :
         return  self.PRDname
+
+
+class order(models.Model):
+    orNumber = models.CharField(max_length=15)
+    Admins = models.ForeignKey(Admins, on_delete=models.CASCADE)
+    total = models.CharField(max_length=15)
+    products = models.ManyToManyField(product) 
+    status = models.CharField(max_length=15)
+    def __str__(self) :
+        return  self.Admins.username+self.orNumber
