@@ -71,7 +71,13 @@ def AdminPage(request , slug):
 
 def Analytics(request , slug):
     AdminPage= get_object_or_404(Admins , slug=slug)
-    context = {'admin': AdminPage}
+    ords=order.objects.all()
+    count = 0
+    for i in ords :
+        if i.Admins.slug == AdminPage.slug:
+            AdminPage.totalprice += i.total
+            count += 1     
+        context = {'admin': AdminPage , 'ords' : i , 'c':count}
     return render(request,"Analytics.html",context)
 
 def Customers(request , slug):
@@ -124,7 +130,7 @@ def Store(request , slug):
 def Cart(request , slug):
     AdminPage= get_object_or_404(Admins , slug=slug)
     context = {'admin': AdminPage}
-    return render(request,"CartPage.html",context)
+    return render(request,"CartPage.html",context )
 
 def userlogin(request , slug):
     AdminPage= get_object_or_404(Admins , slug=slug)

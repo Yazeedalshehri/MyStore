@@ -12,6 +12,7 @@ class Admins(models.Model):
     storename = models.CharField(max_length=10)
     category= models.CharField(max_length=50)
     storecolor=models.CharField(max_length=10)
+    totalprice=models.DecimalField(max_digits=10 , decimal_places=2, default=0)
     slug = models.SlugField(blank=True , null=True)
 
     def __str__(self) :
@@ -28,7 +29,7 @@ class product(models.Model):
      PRDname = models.CharField(max_length=15)
      PRDnumber = models.IntegerField()
      quantity = models.IntegerField()
-     PRDimage = models.ImageField(upload_to='images',null=True )
+     PRDimage = models.ImageField(upload_to='images')
      price = models.DecimalField(max_digits=10, decimal_places=2)
      desc = models.CharField(max_length=100)
 
@@ -39,7 +40,7 @@ class product(models.Model):
 class order(models.Model):
     orNumber = models.CharField(max_length=15)
     Admins = models.ForeignKey(Admins, on_delete=models.CASCADE)
-    total = models.CharField(max_length=15)
+    total = models.DecimalField(max_digits=10, decimal_places=2)
     products = models.ManyToManyField(product) 
     status = models.CharField(max_length=15)
     def __str__(self) :

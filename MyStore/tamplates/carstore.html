@@ -1,4 +1,4 @@
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -579,12 +579,13 @@ header.shadow #search-icon {
         <!-- Parts Container -->
         <div class="parts-container container">
             <!-- Box 1 -->
+
             {% for i in prod %}
             {% if i.Admins.slug == admin.slug %}
                 <div class="box">
-                <img src="img/part1.png" alt="">
+                <img src="" alt="{{i.PRDname}}">
                 <h3>{{ i.PRDname }}</h3>
-                <span>{{ i.price }}</span>
+                <span>${{ i.price }}</span>
                 <i class='bx bxs-star'></i>
                 <a href="#" class="btn">Add to card</a>
                 <a href="#" class="details">View Details</a>
