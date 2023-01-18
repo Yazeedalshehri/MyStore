@@ -33,7 +33,8 @@ class product(models.Model):
      PRDimage = models.ImageField(upload_to='images')
      price = models.DecimalField(max_digits=10, decimal_places=2)
      desc = models.CharField(max_length=100)
-
+     def __unicode__(self):
+        return self.price
      def __str__(self) :
         return  self.PRDname
 
@@ -46,7 +47,10 @@ class order(models.Model):
     status = models.CharField(max_length=15)
     def __str__(self) :
         return  self.Admins.username+self.orNumber
+    def getprice(self):
+        return self.total 
 
+    
 
 class User(models.Model):
      Name = models.CharField(max_length=15)
@@ -66,4 +70,4 @@ class Cart(models.Model):
         return  self.product
    
 
-            
+                

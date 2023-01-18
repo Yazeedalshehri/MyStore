@@ -90,11 +90,15 @@ def Customers(request , slug):
 def Orders(request , slug):
     AdminPage= get_object_or_404(Admins , slug=slug)
     ords=order.objects.all()
+    tot = 0
     for i in ords :
-         if i.Admins.slug == AdminPage.slug:
-            print(i.products.values_list())
-            print("hh")
-    return render(request, 'Orders.html')        
+        if i.Admins.slug == AdminPage.slug:
+         
+           print("         3      ")
+       # i.save()
+    context = {'admin': AdminPage , 'ords' : ords}
+    return render(request,"Orders.html",context)
+
 
 def Products(request , slug):
     AdminPage= get_object_or_404(Admins , slug=slug)
