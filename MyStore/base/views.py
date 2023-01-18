@@ -74,11 +74,13 @@ def Analytics(request , slug):
     AdminPage= get_object_or_404(Admins , slug=slug)
     ords=order.objects.all()
     count = 0
+    AdminPage.totalprice =0
     for i in ords :
         if i.Admins.slug == AdminPage.slug:
             AdminPage.totalprice += i.total
-            count += 1     
-        context = {'admin': AdminPage , 'ords' : i , 'c':count}
+            AdminPage.save()    
+            count += 1
+        context = {'admin': AdminPage , 'ords' : i , 'c':count }
     return render(request,"Analytics.html",context)
 
 def Customers(request , slug):
@@ -90,11 +92,9 @@ def Customers(request , slug):
 def Orders(request , slug):
     AdminPage= get_object_or_404(Admins , slug=slug)
     ords=order.objects.all()
-    for i in ords :
-         if i.Admins.slug == AdminPage.slug:
-            print(i.products.values_list())
-            print("hh")
-    return render(request, 'Orders.html')        
+    context = {'admin': AdminPage , 'ords' : ords}
+    return render(request,"Orders.html",context)
+
 
 def Products(request , slug):
     AdminPage= get_object_or_404(Admins , slug=slug)
