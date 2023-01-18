@@ -6,6 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive Car Sale Website</title>
+    <link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
+    rel="stylesheet"
+  />
     <!-- Link To CSS -->
     <style>
      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
@@ -23,7 +27,7 @@
 /* Variables */
 :root {
   --main-color: {{admin.storecolor}};
-  --text-color: #020102;
+  --text-color: {{admin.StoreTextColor}};
   --bg-color: #fff;
 }
 /* Custom Scroll Bar */
@@ -488,15 +492,25 @@ header.shadow #search-icon {
             <!-- Menu Icon -->
             <i class='bx bx-menu' id="menu-icon"></i>
             <!-- Logo -->
-            <a href="#" class="logo" id="Name">CarPoint</a>
+            <a href="#" class="logo" id="Name">{{admin.storename}} </a>
            
             <!-- Nav List -->
             <ul class="navbar">
                 <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#cars">Cars</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="#cars">Products</a></li>
+                <!--<li><a href="#about">About</a></li>
                 <li><a href="#parts">Parts</a></li>
-                <li><a href="#blog">Our Blog</a></li>
+                <li><a href="#blog">Our Blog</a></li>-->
+                <li>
+
+
+                  
+                  <a href="/{{admin.slug}}/store/login">
+                    <span class="material-icons-sharp">
+                      shopping_cart
+                      </span>
+                     
+                  </a></li>
             </ul>
             <!-- Search Icon -->
             <i class='bx bx-search' id="search-icon" ></i>
@@ -509,132 +523,48 @@ header.shadow #search-icon {
     <!-- Home -->
     <section class="home" id="home">
         <div class="home-text">
-            <h1>{{admin.storename}} <br>Your <span>Car</span> Need</h1>
-            <p>Lorem ipsum dolor sit amet consectetur <br> adipisicing elit. Nulla, corporis.</p>
+            <h1><br>Create <span>Your store</span> </h1>
+            <p>add Products <br> cusomize the page colors</p>
             <!-- Home BUtton -->
             <a href="#" class="btn">Discover Now</a>
         </div>
     </section>
     <!-- Cars Section -->
-    <section class="cars" id="cars">
-        <div class="heading">
-            <span>All Cars</span>
-            <h2>We have all types cars</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, aperiam!</p>
-        </div>
-        <!-- Cars Container -->
-        <div class="cars-container container">
-            <!-- Box 1 -->
-            <div class="box">
-                <img src="img/car1.jpg" alt="">
-                <h2>Porche Car</h2>
-            </div>
-            <!-- Box 2 -->
-            <div class="box">
-                <img src="img/car2.jpg" alt="">
-                <h2>Porche Car</h2>
-            </div>
-            <!-- Box 3 -->
-            <div class="box">
-                <img src="img/car3.jpg" alt="">
-                <h2>Porche Car</h2>
-            </div>
-            <!-- Box 4 -->
-            <div class="box">
-                <img src="img/car4.jpg" alt="">
-                <h2>Porche Car</h2>
-            </div>
-            <!-- Box 5 -->
-            <div class="box">
-                <img src="img/car5.jpg" alt="">
-                <h2>Porche Car</h2>
-            </div>
-            <!-- Box 6 -->
-            <div class="box">
-                <img src="img/car6.jpg" alt="">
-                <h2>Porche Car</h2>
-            </div>
-        </div>
-    </section>
-    <!-- About -->
-    <section class="about container" id="about">
-        <div class="about-img">
-            <img src="img/about.png" alt="">
-        </div>
-        <div class="about-text">
-            <span>About Us</span>
-            <h2>Cheap Prices With <br>Quality Cars</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed laborum blanditiis ratione numquam odio ea!</p>
-            <!-- About Button -->
-            <a href="#" class="btn">Learn More</a>
-        </div>
-    </section>
-    <!-- Parts Section -->
-    <section class="parts" id="parts">
-        <div class="heading">
-            <span>What We Offer</span>
-            <h2>Our Car Is Always Excellent</h2>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto, doloremque.</p>
-        </div>
+
+        <form method="POST"> 
+          {% csrf_token %}
+          <section>
         <!-- Parts Container -->
         <div class="parts-container container">
             <!-- Box 1 -->
+           
+            
 
+           
             {% for i in prod %}
             {% if i.Admins.slug == admin.slug %}
                 <div class="box">
-                <img src="" alt="{{i.PRDname}}">
-                <h3>{{ i.PRDname }}</h3>
-                <span>${{ i.price }}</span>
+                <img src="" alt="{{i.PRDname}}"> 
+                <h3 id="PRDname" id="Product" name="Product">{{ i.PRDname }}</h3>
+                <span id="Price" name="Price">${{ i.price }}</span>
                 <i class='bx bxs-star'></i>
-                <a href="#" class="btn">Add to card</a>
-                <a href="#" class="details">View Details</a>
+               
+                <input type="submit" value="Add to cart" class="btn">
+               
                 </div>
                 {% endif %}       
                 {% endfor %}
-            
+             
         </div>
     </section>
+  </form>
     <!-- Blog Container -->
-    <section class="blog" id="blog">
-        <div class="heading">
-            <span>Blog & News</span>
-            <h2>Our Blog Content</h2>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto, doloremque.</p>
-        </div>
-        <!-- Blog Container -->
-        <div class="blog-container container">
-            <!-- Box 1 -->
-            <div class="box">
-                <img src="img/car1.jpg" alt="">
-                <span>Feb 14 2021</span>
-                <h3>How To Get Perfect Car At Low Price</h3>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo, veniam.</p>
-                <a href="#" class="blog-btn">Read More<i class='bx bx-right-arrow-alt' ></i></a>
-            </div>
-            <!-- Box 2 -->
-            <div class="box">
-                <img src="img/car4.jpg" alt="">
-                <span>Feb 14 2021</span>
-                <h3>How To Get Perfect Car At Low Price</h3>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo, veniam.</p>
-                <a href="#" class="blog-btn">Read More<i class='bx bx-right-arrow-alt' ></i></a>
-            </div>
-            <!-- Box 3 -->
-            <div class="box">
-                <img src="img/car3.jpg" alt="">
-                <span>Feb 14 2021</span>
-                <h3>How To Get Perfect Car At Low Price</h3>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo, veniam.</p>
-                <a href="#" class="blog-btn">Read More<i class='bx bx-right-arrow-alt' ></i></a>
-            </div>
-        </div>
-    </section>
+    
     <!-- Footer -->
     <section class="footer">
         <div class="footer-container container">
             <div class="footer-box">
-                <a href="#" class="logo">Car<span>Point</span></a>
+                <a href="#" class="logo">{{admin.storename}} </a>
                 <div class="social">
                     <a href="#"><i class='bx bxl-facebook' ></i></a>
                     <a href="#"><i class='bx bxl-twitter' ></i></a>
@@ -642,37 +572,16 @@ header.shadow #search-icon {
                     <a href="#"><i class='bx bxl-youtube' ></i></a>
                 </div>
             </div>
-            <div class="footer-box">
-                <h3>Page</h3>
-                <a href="#">Home</a>
-                <a href="#">Cars</a>
-                <a href="#">Parts</a>
-                <a href="#">Sales</a>
-            </div>
-            <div class="footer-box">
-                <h3>Legal</h3>
-                <a href="#">Privacy</a>
-                <a href="#">Refund Policy</a>
-                <a href="#">Cookie Policy</a>
-                
-            </div>
-            <div class="footer-box">
-                <h3>Contact</h3>
-                <p>United States</p>
-                <p>Japan</p>
-                <p>Germany</p>
-            </div>
+            
         </div>
     </section>
     <!-- Copyright -->
     <div class="copyright">
-        <p>&#169; CarpoolVenom All Right Reserved</p>
+        <p>&#169;  All Right Reserved</p>
     </div>
     <!-- Link To Js -->
 <script>
 
-    const Name = localStorage.getItem("Name");
-    document.getElementById("Name").innerHTML = Name;
    
     let search = document.querySelector('.search-box');
 
@@ -699,6 +608,23 @@ let header = document.querySelector('header');
 window.addEventListener('scroll' , () => {
     header.classList.toggle('shadow', window.scrollY > 0);
 });
+
+
+let ProductsArray = [];
+function AddToCart()
+{
+  
+  const Product = document.getElementById('PRDname').innerHTML;
+ 
+  
+
+  
+    localStorage.setItem('product', Product);
+
+  
+ 
+
+}
 </script>
 </body>
 
