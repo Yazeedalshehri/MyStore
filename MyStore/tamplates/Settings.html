@@ -131,11 +131,15 @@
             highlight_off
           </span>
           
-          <input type="text" name="Test" id="test">
+          
           <label for="img"> Store logo</label>
           <input type="file" id="logo" name="img" accept="image/*" placeholder="Upload Store Logo">
-          <label for="StoreColor">Store Color</label>
-          <input type="color" id="StoreColor" name="StoreColor" method="StoreColor">
+          <label for="StoreColor">Store Primary Color</label>
+          <input type="color" id="StoreColor" name="StoreColor" method="StoreColor"value  = "{{admin.storecolor}}">
+
+          <label for="StoreTextColor">Store Secondery Color</label>
+          <input type="color" id="StoreTextColor" name="StoreTextColor" method="StoreTextColor" value="{{admin.StoreTextColor}}">
+          
           <label for="Catogery">Choose your store type</label>
           <select name="Catogery" id="Catogery">
             <option value="deafault">default</option>
@@ -208,20 +212,6 @@
     }
 
 
-    function SaveData(){
-  
-    
-        
-      const test = document.getElementById("test").value;
-      localStorage.setItem("Name",test);
-      const Color = document.getElementById("StoreColor").value;
-      localStorage.setItem("Color",Color);
-
-
-
-
-   
-  }
   </script>
     
    

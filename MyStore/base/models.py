@@ -12,6 +12,7 @@ class Admins(models.Model):
     storename = models.CharField(max_length=10)
     category= models.CharField(max_length=50)
     storecolor=models.CharField(max_length=10)
+    StoreTextColor=models.CharField(max_length=10)
     totalprice=models.DecimalField(max_digits=10 , decimal_places=2, default=0)
     slug = models.SlugField(blank=True , null=True)
 
@@ -49,6 +50,30 @@ class order(models.Model):
     status = models.CharField(max_length=15)
     def __str__(self) :
         return  self.Admins.username+self.orNumber
+
     
     def getprice(self):
         return self.total 
+
+
+
+class User(models.Model):
+     Name = models.CharField(max_length=15)
+     Email = models.CharField(max_length=30)
+     password = models.CharField(max_length=15)
+     Phonenumber = models.CharField(max_length=10)
+     def __str__(self) :
+        return  self.Name
+
+
+class Cart(models.Model):
+     Admin = models.CharField(max_length=15) 
+     User = models.CharField(max_length=15)
+     Product=models.CharField(max_length=15)
+     Total=models.DecimalField(max_digits=10, decimal_places=2)
+     def __str__(self) :
+        return  self.product
+   
+
+            
+
