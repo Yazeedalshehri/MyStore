@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from base import views
+from base import views 
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -34,7 +34,7 @@ urlpatterns = [
     path('<slug:slug>/Settings/',views.Settings),
     path('<slug:slug>/store/',views.Store),
     path('<slug:slug>/store/Cart/',views.Cart),
-    path('<slug:slug>/store/login',views.userlogin),
+    path('<slug:slug>/store/login',views.UserLoginView),
    
     
 
