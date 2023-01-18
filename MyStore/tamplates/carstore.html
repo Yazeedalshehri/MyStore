@@ -544,15 +544,9 @@ header.shadow #search-icon {
             {% for i in prod %}
             {% if i.Admins.slug == admin.slug %}
                 <div class="box">
-                  {% if i.PRDimage %}
-                  <img src="{{i.PRDimage.url}}" class="card-img-top"
-                  alt="i.PRDname">
-                {% else %}
-                  <img class="default-img" src="{% static 'site_static/img/default.png' %}" class="card-img-top"
-                  alt="i.PRDname">
-                {% endif %}
-                <h3>{{ i.PRDname }}</h3>
-                <span>${{ i.price }}</span>
+                <img src="" alt="{{i.PRDname}}"> 
+                <h3 id="PRDname" id="Product" name="Product">{{ i.PRDname }}</h3>
+                <span id="Price" name="Price">${{ i.price }}</span>
                 <i class='bx bxs-star'></i>
                
                 <input type="submit" value="Add to cart" class="btn">
