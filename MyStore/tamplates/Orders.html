@@ -63,10 +63,6 @@
               <span class="material-icons-sharp"> settings </span>
               <h3>Settings</h3>
             </a>
-            <a href="#">
-              <span class="material-icons-sharp"> add </span>
-              <h3>Add Product</h3>
-            </a>
             <a href="/HomePage">
               <span class="material-icons-sharp"> logout </span>
               <h3>Logout</h3>
@@ -132,7 +128,7 @@
                   <td data-label="name"></td>
                   <td data-label="name"></td>
                   <td data-label="name">{{ i.status }}</td>
-                  <td data-label="name">{{ i.total }}</td>
+                  <td data-label="name">{{ i.products.all|join:", " }}</td>
                   </tr>   
                   {% endif %}       
                   {% endfor %}

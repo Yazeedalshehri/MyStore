@@ -32,16 +32,23 @@ class product(models.Model):
      PRDimage = models.ImageField(upload_to='images')
      price = models.DecimalField(max_digits=10, decimal_places=2)
      desc = models.CharField(max_length=100)
-
+     def __unicode__(self):
+        return self.price
      def __str__(self) :
         return  self.PRDname
+
+     def getprice(self):
+        return self.price   
 
 
 class order(models.Model):
     orNumber = models.CharField(max_length=15)
     Admins = models.ForeignKey(Admins, on_delete=models.CASCADE)
     total = models.DecimalField(max_digits=10, decimal_places=2)
-    products = models.ManyToManyField(product) 
+    products = models.ManyToManyField(product , related_name="product") 
     status = models.CharField(max_length=15)
     def __str__(self) :
         return  self.Admins.username+self.orNumber
+    
+    def getprice(self):
+        return self.total 
