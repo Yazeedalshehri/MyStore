@@ -1,59 +1,65 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart Page</title>
-    
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cart Page</title>
+
 	<link href="{% static '/Styles/CartPageStyle.css' %}" rel="stylesheet">
 </head>
 
 
 <body>
-    <div class="wrapper">
+	<div class="wrapper">
 		<h1>Cart</h1>
 		<div class="project">
-			<div class="shop">
+			<div class="shop" id="shop">
 				<div class="box">
 					<img src="1.jpg">
 					<div class="content">
 						<h3>Product 1</h3>
 						<h4>Price: $40</h4>
 						<p class="unit">Quantity: <input name="" value="2"></p>
-						<p class="btn-area"><i aria-hidden="true" class="fa fa-trash"></i> <span class="btn2">Remove</span></p>
+						<p class="btn-area"><i aria-hidden="true" class="fa fa-trash"></i> <span
+								class="btn2">Remove</span></p>
 					</div>
 				</div>
-				<div class="box">
-					<img src="2.jpg">
-					<div class="content">
-						<h3>Product 2</h3>
-						<h4>Price: $40</h4>
-						<p class="unit">Quantity: <input name="" value="1"></p>
-						<p class="btn-area"><i aria-hidden="true" class="fa fa-trash"></i> <span class="btn2">Remove</span></p>
-					</div>
-				</div>
-				<div class="box">
-					<img src="3.jpg">
-					<div class="content">
-						<h3>Product 3</h3>
-						<h4>Price: $250</h4>
-						<p class="unit">Quantity: <input name="" value="0"></p>
-						<p class="btn-area"><i aria-hidden="true" class="fa fa-trash"></i> <span class="btn2">Remove</span></p>
-					</div>
-				</div>
+            
+
 			</div>
+
 			<div class="right-bar">
-				<p><span>Subtotal</span> <span>$120</span></p>
+				<p><span>Subtotal</span> <span>$0.0</span></p>
 				<hr>
-				<p><span>Tax (15%)</span> <span>$6</span></p>
+				<p><span>Tax (15%)</span> <span>$0.0</span></p>
 				<hr>
-				<p><span>Shipping</span> <span>$15</span></p>
+				<p><span>Shipping</span> <span>$0.0</span></p>
 				<hr>
-				<p><span>Total</span> <span>$141</span></p><a href="#"><i class="fa fa-shopping-cart"></i>Checkout</a>
+				<p><span>Total</span> <span>$0.0</span></p><a href="#"><i class="fa fa-shopping-cart"></i>Checkout</a>
 			</div>
 		</div>
 	</div>
 </body>
+
+<script>
+
+	const products = localStorage.getItem('product');
+	console.log(products);
+    window.onload = loadProducts();
+	function loadProducts()
+	{
+		document.getElementById('shop').innerHTML += products;
+
+		
+	}
+	
+	
+	
+	
+
+</script>
+
 </html>

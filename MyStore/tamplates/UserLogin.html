@@ -17,24 +17,28 @@
            <div class="title">
               Login 
            </div>
-           <form action="#">
+           <form method="POST" action="" > 
+            {% csrf_token %}
+            
+          
+            <div class="field">
+               <input id="name" input type="text" name="name" required>
+               <label>User name</label>
+            </div>
               <div class="field">
-                 <input type="text" required>
+                 <input id="email" input type="email" name="email"required>
                  <label>Email Address</label>
               </div>
               <div class="field">
-                 <input type="password" required>
+                 <input id="password" input type="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,16}$" name="password" required>
                  <label>Password</label>
               </div>
               <div class="field">
-                <input type="number" required>
+                <input id="phonenumber" input type="text" pattern="[0]{1}[5]{1}[0-9]{8}" name="phonenumber" required>
                 <label>Phone</label>
              </div>
               <div class="content">
-                 <div class="checkbox">
-                    <input type="checkbox" id="remember-me">
-                    <label for="remember-me">Remember me</label>
-                 </div>
+                
                  
               </div>
               <div class="field">
