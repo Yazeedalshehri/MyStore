@@ -3,7 +3,7 @@ from . import models
 from django.contrib.auth.models import User
 from .models import Admins
 from django.contrib.auth.forms import UserCreationForm
-from .models import User
+from .models import customer
 
 
 
@@ -25,5 +25,5 @@ class AdminsForm(forms.ModelForm):
 
 class UserLoginForm(forms.ModelForm):
     class Meta:
-        model = User
+        model = customer
         fields = ('Name','Email','password','Phonenumber')

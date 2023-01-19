@@ -3,7 +3,7 @@ from django.http import request
 from django.contrib.auth.forms import UserCreationForm , PasswordChangeForm
 from django.contrib.auth import login , authenticate
 from django.core.paginator import Paginator
-from .models import Admins , product , order ,User,Cart
+from .models import Admins , product , order ,customer,Cart
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
@@ -133,7 +133,7 @@ def Store(request , slug ):
         productCart = request.POST.get("Product")
         print(productCart)
         price = request.POST['Price']
-        new_cart = Cart(Product= a )
+        new_cart = Cart(Product= productCart )
         new_cart.save() 
        
     

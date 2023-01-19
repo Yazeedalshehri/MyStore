@@ -52,7 +52,7 @@ class order(models.Model):
         return  self.Admins.username+self.orNumber
 
 
-class User(models.Model):
+class customer(models.Model):
      Name = models.CharField(max_length=15)
      Email = models.CharField(max_length=30)
      password = models.CharField(max_length=15)
