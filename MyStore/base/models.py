@@ -62,12 +62,12 @@ class User(models.Model):
 
 
 class Cart(models.Model):
-     Admin = models.CharField(max_length=15) 
+     Admins = models.ForeignKey(Admins, on_delete=models.CASCADE) 
      User = models.CharField(max_length=15)
      Product=models.CharField(max_length=15)
      Total=models.DecimalField(max_digits=10, decimal_places=2)
      def __str__(self) :
-        return  self.product
+        return  self.User
    
 
             

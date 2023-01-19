@@ -92,11 +92,8 @@ def Customers(request , slug):
 def Orders(request , slug):
     AdminPage= get_object_or_404(Admins , slug=slug)
     ords=order.objects.all()
-    for i in ords :
-         if i.Admins.slug == AdminPage.slug:
-            print(i.products.values_list())
-            print("hh")
-    return render(request, 'Orders.html')        
+    context = {'admin': AdminPage , 'ords' :ords}
+    return render(request, 'Orders.html',context)        
 
 def Products(request , slug):
     AdminPage= get_object_or_404(Admins , slug=slug)
@@ -131,16 +128,12 @@ def Settings(request , slug):
 
 def Store(request , slug ):
     AdminPage= get_object_or_404(Admins , slug=slug)
-    
     pro=product.objects.all()
-    
-
     if request.method == 'POST':
-        admin = 'yazeed'
-        user = 'yazed'
-        productCart = request.POST.get('Product')
-        price = request.POST.get('Price')
-        new_cart = Cart(Admin = admin ,User = user, Product= productCart,Total=price)
+        productCart = request.POST.get("Product")
+        print(productCart)
+        price = request.POST['Price']
+        new_cart = Cart(Product= a )
         new_cart.save() 
        
     
@@ -167,7 +160,7 @@ def UserLoginView(request ,slug):
         new_User = User(Name= Name, Email= Email, password = password, Phonenumber= Phonenumber)
         new_User.save()  
         
-    Store(request,slug,Name)    
+   
 
         
     return render(request,"UserLogin.html")

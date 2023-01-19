@@ -544,13 +544,15 @@ header.shadow #search-icon {
             {% for i in prod %}
             {% if i.Admins.slug == admin.slug %}
                 <div class="box">
-                <img src="" alt="{{i.PRDname}}"> 
-                <h3 id="PRDname" id="Product" name="Product">{{ i.PRDname }}</h3>
+                <img src="{{i.PRDimage_url}}" alt="{{i.PRDname}}"> 
+                <h3 id="Product"  name="Product" value="{{i.PRDname}}">{{ i.PRDname }}</h3>
                 <span id="Price" name="Price">${{ i.price }}</span>
                 <i class='bx bxs-star'></i>
                
-                <input type="submit" value="Add to cart" class="btn">
-               
+                
+                <button type="submit" class="btn">
+									Add to cart
+									</button>
                 </div>
                 {% endif %}       
                 {% endfor %}
