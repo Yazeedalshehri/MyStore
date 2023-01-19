@@ -35,6 +35,8 @@ urlpatterns = [
     path('<slug:slug>/store/',views.Store),
     path('<slug:slug>/store/Cart/',views.Cart),
     path('<slug:slug>/store/login',views.UserLoginView),
+    path('yazeed/store/UpdateItem/',views.UpdateItem),
+    
    
     
 

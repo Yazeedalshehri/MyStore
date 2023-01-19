@@ -3,12 +3,15 @@ from django.http import request
 from django.contrib.auth.forms import UserCreationForm , PasswordChangeForm
 from django.contrib.auth import login , authenticate
 from django.core.paginator import Paginator
-from .models import Admins , product , order ,customer,Cart
+from .models import *
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
-from .forms import AdminsForm,UserLoginForm
+from .forms import AdminsForm
 from django.views.generic import CreateView 
+from django.http import JsonResponse
+import json 
+
 
 
 
@@ -66,13 +69,13 @@ def Register(request ):
 
 def AdminPage(request , slug):
     AdminPage= get_object_or_404(Admins , slug=slug)
-    ords=order.objects.all()
+    ords=Order.objects.all()
     context = {'admin': AdminPage , 'ords' : ords}
     return render(request,"AdminPage.html", context)
 
 def Analytics(request , slug):
     AdminPage= get_object_or_404(Admins , slug=slug)
-    ords=order.objects.all()
+    ords=Order.objects.all()
     count = 0
     AdminPage.totalprice =0
     for i in ords :
@@ -91,7 +94,7 @@ def Customers(request , slug):
 
 def Orders(request , slug):
     AdminPage= get_object_or_404(Admins , slug=slug)
-    ords=order.objects.all()
+    ords=Order.objects.all()
     context = {'admin': AdminPage , 'ords' :ords}
     return render(request, 'Orders.html',context)        
 
@@ -157,11 +160,55 @@ def UserLoginView(request ,slug):
         Email = request.POST['email'] 
         password = request.POST['password'] 
         Phonenumber = request.POST['phonenumber']   
-        new_User = User(Name= Name, Email= Email, password = password, Phonenumber= Phonenumber)
-        new_User.save()  
+       # new_User = User(Name= Name, Email= Email, password = password, Phonenumber= Phonenumber)
+       # new_User.save()  
         
    
 
         
     return render(request,"UserLogin.html")
+
+
+
+def UpdateItem(request):
+
+    data = json.loads(request.body)
+    productId = data['productId']
+    action = data['action']
+    print(action)
+    print(productId)
+    customer = request.user.customer
+    product = Products.objects.get(Number=productId)
+    order, created = Order.objects.get_or_create(customer=customer, complete=False)
+    orderItem, created = OrderItem.objects.get_or_create(order=order, product=product)
+    if action == 'add':
+        orderItem.quantity = (orderItem.quantity + 1)
+    elif action == 'remove':
+        orderItem.quantity = (orderItem.quantity - 1)
+
+    orderItem.save()
+
+    if orderItem.quantity <= 0:
+        orderItem.delete()
+
+
+
+
+
+
+
+    return JsonResponse('Item was added', safe=False)
+
+
+
+
+
+
+
+
+
+
+
+
+
     
