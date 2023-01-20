@@ -19,6 +19,7 @@ from base import views
 from django.conf import settings
 from django.conf.urls.static import static
 
+
 urlpatterns = [
     path('UserLogin/',views.UserLogin),
     path('Cart/',views.Cart),
@@ -35,7 +36,7 @@ urlpatterns = [
     path('<slug:slug>/store/',views.Store),
     path('<slug:slug>/store/Cart/',views.Cart),
     path('<slug:slug>/store/login',views.UserLoginView),
-    path('yazeed/store/UpdateItem/',views.UpdateItem),
+    path('yazeed/store/UpdateItem/',views.UpdateItem ),
     
    
     

@@ -1,4 +1,3 @@
-
 var updateBtns = document.getElementsByClassName('btn');
 
 for (i = 0; i < updateBtns.length; i++) {
@@ -31,7 +30,7 @@ function updateUserOrder(productId, action){
 		   return response.json();
 		})
 		.then((data) => {
-		   // location.reload()
+		   location.reload()
            console.log('data', data);
 		});
 }

@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils.text import slugify
 from django.contrib.auth.models import User
+import datetime
+
 
 # Create your models here.
 
@@ -38,13 +40,16 @@ class product(models.Model):
         return self.price
      def __str__(self) :
         return  self.PRDname
-
+     def __unicode__(self):
+        return self.PRDnumber
      def getprice(self):
-        return self.price   
+        return self.price  
+	
+	 
 
 
 class Customer(models.Model):
-	user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
+	user_id = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
 	name = models.CharField(max_length=200, null=True)
 	email = models.CharField(max_length=200)
 

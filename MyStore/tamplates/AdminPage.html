@@ -127,21 +127,9 @@
                 <th></th>
               </tr>
             </thead>
-            <p>
-              {% for i in ords %}
-              {% if i.Admins.slug == admin.slug %}
-              <tr>
-              <td data-label="name">{{ i.orNumber }}</td>
-              <td data-label="name"></td>
-              <td data-label="name"></td>
-              <td data-label="name">{{ i.status }}</td>
-              <td data-label="name">{{ i.total }}</td>
-              </tr>   
-              {% endif %}       
-              {% endfor %}
-            </p>
+           
           </table>
-          <a href="Orders">Show All</a>
+          <a href="/Orders">Show All</a>
         </div>
       </main>
 

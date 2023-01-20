@@ -1,65 +1,65 @@
 {% load static %}
+{% block content %}
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Cart Page</title>
-
+	<title>Document</title>
 	<link href="{% static '/Styles/CartPageStyle.css' %}" rel="stylesheet">
 </head>
-
-
 <body>
-	<div class="wrapper">
-		<h1>Cart</h1>
-		<div class="project">
-			<div class="shop" id="shop">
-				<div class="box">
-					<img src="1.jpg">
-					<div class="content">
-						<h3>Product 1</h3>
-						<h4>Price: $40</h4>
-						<p class="unit">Quantity: <input name="" value="2"></p>
-						<p class="btn-area"><i aria-hidden="true" class="fa fa-trash"></i> <span
-								class="btn2">Remove</span></p>
-					</div>
-				</div>
-            
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="box-element">
+
+				<a  class="btn btn-outline-dark" >&#x2190; Continue Shopping</a>
+
+				<br>
+				<br>
+				<table class="table">
+					<tr>
+						<th><h5>Items: <strong>{{order.get_cart_items}}</strong></h5></th>
+						<th><h5>Total:<strong> ${{order.get_cart_total|floatformat:2}}</strong></h5></th>
+						<th>
+							<a  style="float:right; margin:5px;" class="btn btn-success" href="">Checkout</a>
+						</th>
+					</tr>
+				</table>
 
 			</div>
 
-			<div class="right-bar">
-				<p><span>Subtotal</span> <span>$0.0</span></p>
-				<hr>
-				<p><span>Tax (15%)</span> <span>$0.0</span></p>
-				<hr>
-				<p><span>Shipping</span> <span>$0.0</span></p>
-				<hr>
-				<p><span>Total</span> <span>$0.0</span></p><a href="#"><i class="fa fa-shopping-cart"></i>Checkout</a>
+			<br>
+			<div class="box-element">
+				<div class="cart-row">
+					<div style="flex:2"></div>
+					<div style="flex:2"><strong>Item</strong></div>
+					<div style="flex:1"><strong>Price</strong></div>
+					<div style="flex:1"><strong>Quantity</strong></div>
+					<div style="flex:1"><strong>Total</strong></div>
+				</div>
+				{% for item in items %}
+				<div class="cart-row">
+					<div style="flex:2"><img class="row-image" src="{{item.product.imageURL}}"></div>
+					<div style="flex:2"><p>{{item.product.name}}</p></div>
+					<div style="flex:1"><p>${{item.product.price|floatformat:2}}</p></div>
+					<div style="flex:1">
+						<p class="quantity">{{item.quantity}}</p>
+						<div class="quantity">
+							<img data-product="{{item.product.id}}" data-action="add" class="chg-quantity update-cart" src="{% static  'images/arrow-up.png' %}">
+					
+							<img data-product="{{item.product.id}}" data-action="remove" class="chg-quantity update-cart" src="{% static  'images/arrow-down.png' %}">
+						</div>
+					</div>
+					<div style="flex:1"><p>${{item.get_total|floatformat:2}}</p></div>
+				</div>
+				{% endfor %}
 			</div>
 		</div>
 	</div>
 </body>
-
-<script>
-
-	const products = localStorage.getItem('product');
-	console.log(products);
-    window.onload = loadProducts();
-	function loadProducts()
-	{
-		document.getElementById('shop').innerHTML += products;
-
-		
-	}
-	
-	
-	
-	
-
-</script>
-
 </html>
+	
+{% endblock content %}

@@ -11,6 +11,9 @@ from .forms import AdminsForm
 from django.views.generic import CreateView 
 from django.http import JsonResponse
 import json 
+from django.views.decorators.csrf import csrf_exempt
+from .utils import cartData
+
 
 
 
@@ -78,12 +81,13 @@ def Analytics(request , slug):
     ords=Order.objects.all()
     count = 0
     AdminPage.totalprice =0
-    for i in ords :
-        if i.Admins.slug == AdminPage.slug:
-            AdminPage.totalprice += i.total
-            AdminPage.save()    
-            count += 1
-        context = {'admin': AdminPage , 'ords' : i , 'c':count }
+   # for i in ords :
+    #    if i.Admins.slug == AdminPage.slug:
+    #        AdminPage.totalprice += i.total
+    #        AdminPage.save()    
+    #        count += 1
+    context = {'admin': AdminPage }
+    #, 'ords' : i , 'c':count 
     return render(request,"Analytics.html",context)
 
 def Customers(request , slug):
@@ -94,8 +98,8 @@ def Customers(request , slug):
 
 def Orders(request , slug):
     AdminPage= get_object_or_404(Admins , slug=slug)
-    ords=Order.objects.all()
-    context = {'admin': AdminPage , 'ords' :ords}
+    
+    context = {'admin': AdminPage }
     return render(request, 'Orders.html',context)        
 
 def Products(request , slug):
@@ -132,12 +136,14 @@ def Settings(request , slug):
 def Store(request , slug ):
     AdminPage= get_object_or_404(Admins , slug=slug)
     pro=product.objects.all()
-    if request.method == 'POST':
-        productCart = request.POST.get("Product")
-        print(productCart)
-        price = request.POST['Price']
-        new_cart = Cart(Product= productCart )
-        new_cart.save() 
+    data = cartData(request)
+
+    cartItems = data['cartItems']
+    order = data['order']
+    items = data['items']
+
+    products = product.objects.all()
+    context = {'products':products, 'cartItems':cartItems}
        
     
     context = {'admin': AdminPage , 'prod': pro}
@@ -145,6 +151,13 @@ def Store(request , slug ):
 
 def Cart(request , slug):
     AdminPage= get_object_or_404(Admins , slug=slug)
+    data = cartData(request)
+
+    cartItems = data['cartItems']
+    order = data['order']
+    items = data['items']
+
+    context = {'items':items, 'order':order, 'cartItems':cartItems}
     context = {'admin': AdminPage}
     return render(request,"CartPage.html",context )
 
@@ -169,18 +182,17 @@ def UserLoginView(request ,slug):
     return render(request,"UserLogin.html")
 
 
-
+@csrf_exempt
 def UpdateItem(request):
-
     data = json.loads(request.body)
     productId = data['productId']
     action = data['action']
     print(action)
     print(productId)
     customer = request.user.customer
-    product = Products.objects.get(Number=productId)
+    ProductObject = product.objects.get(PRDnumber=productId)
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
-    orderItem, created = OrderItem.objects.get_or_create(order=order, product=product)
+    orderItem, created = OrderItem.objects.get_or_create(order=order, product=ProductObject)
     if action == 'add':
         orderItem.quantity = (orderItem.quantity + 1)
     elif action == 'remove':
