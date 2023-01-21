@@ -1,5 +1,5 @@
 {% load static %}
-{% block content %}
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,16 +7,17 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>Cart</title>
 	<link href="{% static '/Styles/CartPageStyle.css' %}" rel="stylesheet">
 </head>
 <body>
 	<div class="row">
 		<div class="col-lg-12">
 			<div class="box-element">
-
-				<a  class="btn btn-outline-dark" >&#x2190; Continue Shopping</a>
-
+				
+				<a  class="btn btn-outline-dark" href=" /{{admin.slug}}/store/ ">&#x2190; Continue Shopping</a>
+				
+				
 				<br>
 				<br>
 				<table class="table">
@@ -24,7 +25,8 @@
 						<th><h5>Items: <strong>{{order.get_cart_items}}</strong></h5></th>
 						<th><h5>Total:<strong> ${{order.get_cart_total|floatformat:2}}</strong></h5></th>
 						<th>
-							<a  style="float:right; margin:5px;" class="btn btn-success" href="">Checkout</a>
+							
+							<a  style="float:right; margin:5px;" class="btn btn-success" href="/{{admin.slug}}/store/Cart/Checkout">Checkout</a>
 						</th>
 					</tr>
 				</table>
@@ -43,7 +45,7 @@
 				{% for item in items %}
 				<div class="cart-row">
 					<div style="flex:2"><img class="row-image" src="{{item.product.imageURL}}"></div>
-					<div style="flex:2"><p>{{item.product.name}}</p></div>
+					<div style="flex:2"><p>{{item.product.Name}}</p></div>
 					<div style="flex:1"><p>${{item.product.price|floatformat:2}}</p></div>
 					<div style="flex:1">
 						<p class="quantity">{{item.quantity}}</p>
@@ -62,4 +64,3 @@
 </body>
 </html>
 	
-{% endblock content %}

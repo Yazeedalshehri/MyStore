@@ -22,7 +22,6 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('UserLogin/',views.UserLogin),
-    path('Cart/',views.Cart),
     path('admin/', admin.site.urls),
     path('HomePage/',views.HomePage, name="homepage"),
     path('HomePage/Register/',views.Register),
@@ -33,10 +32,11 @@ urlpatterns = [
     path('<slug:slug>/Products/',views.Products),
     path('<slug:slug>/Orders/',views.Orders),
     path('<slug:slug>/Settings/',views.Settings),
-    path('<slug:slug>/store/',views.Store),
-    path('<slug:slug>/store/Cart/',views.Cart),
+    path('<slug:slug>/store/',views.Store , name='store'),
+    path('<slug:slug>/store/Cart/',views.Cart, name='Cart'),
     path('<slug:slug>/store/login',views.UserLoginView),
     path('yazeed/store/UpdateItem/',views.UpdateItem ),
+    path('<slug:slug>/store/Cart/Checkout',views.Checkout, name='Checkout'),
     
    
     

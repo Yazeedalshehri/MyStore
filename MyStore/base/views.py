@@ -135,18 +135,17 @@ def Settings(request , slug):
 
 def Store(request , slug ):
     AdminPage= get_object_or_404(Admins , slug=slug)
+    AdminName = Admins.objects.all()
     pro=product.objects.all()
     data = cartData(request)
-
+    
     cartItems = data['cartItems']
     order = data['order']
     items = data['items']
 
     products = product.objects.all()
-    context = {'products':products, 'cartItems':cartItems}
+    context = {'admin': AdminPage , 'prod': pro ,'products':products, 'cartItems':cartItems}
        
-    
-    context = {'admin': AdminPage , 'prod': pro}
     return render(request,"carstore.html",context)
 
 def Cart(request , slug):
@@ -157,8 +156,8 @@ def Cart(request , slug):
     order = data['order']
     items = data['items']
 
-    context = {'items':items, 'order':order, 'cartItems':cartItems}
-    context = {'admin': AdminPage}
+    
+    context = {'admin': AdminPage ,'items':items, 'order':order, 'cartItems':cartItems}
     return render(request,"CartPage.html",context )
 
 def userlogin(request , slug):
@@ -210,6 +209,18 @@ def UpdateItem(request):
 
 
     return JsonResponse('Item was added', safe=False)
+
+def Checkout(request ,slug):
+    AdminPage= get_object_or_404(Admins , slug=slug)
+    data = cartData(request)
+	
+    cartItems = data['cartItems']
+    order = data['order']
+    items = data['items']
+
+    context = {'admin': AdminPage ,'items':items, 'order':order, 'cartItems':cartItems}
+    return render(request, 'Checkout.html', context)
+
 
 
 
