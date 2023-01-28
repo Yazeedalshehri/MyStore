@@ -16,6 +16,7 @@ class Admins(models.Model):
     category= models.CharField(max_length=50)
     storecolor=models.CharField(max_length=10)
     StoreTextColor=models.CharField(max_length=10)
+    StoreBackgroundColor= models.CharField(max_length=10)
     totalprice=models.DecimalField(max_digits=10 , decimal_places=2, default=0)
     slug = models.SlugField(blank=True , null=True)
 
@@ -44,18 +45,24 @@ class product(models.Model):
         return self.PRDnumber
      def getprice(self):
         return self.price  
+     def deleteProduct(self):
+       return self.PRDnumber
 	
+class Users(models.Model):
+	Name= models.CharField(max_length=15)
+	Email=models.CharField(max_length=50)
+	password = models.CharField(max_length=15)
+	Phonenumber= models.IntegerField(max_length=10)
 	 
 
 
 class Customer(models.Model):
-	user_id = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
+	customer = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
 	name = models.CharField(max_length=200, null=True)
 	email = models.CharField(max_length=200)
 
 	def __str__(self):
 		return self.name
-
 
 
 
@@ -68,14 +75,7 @@ class Order(models.Model):
 	def __str__(self):
 		return str(self.id)
 		
-	@property
-	def shipping(self):
-		shipping = False
-		orderitems = self.orderitem_set.all()
-		for i in orderitems:
-			if i.product.PRDnumber == False:
-				shipping = True
-		return shipping
+	
 
 	@property
 	def get_cart_total(self):
@@ -101,8 +101,9 @@ class OrderItem(models.Model):
 		return total
 
 class ShippingAddress(models.Model):
-	customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True)
-	order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True)
+	name = models.CharField(max_length=200, null=False)
+	Phone = models.CharField(max_length=200, null=False)
+	email = models.CharField(max_length=200, null=False)
 	address = models.CharField(max_length=200, null=False)
 	city = models.CharField(max_length=200, null=False)
 	state = models.CharField(max_length=200, null=False)
@@ -110,7 +111,15 @@ class ShippingAddress(models.Model):
 	date_added = models.DateTimeField(auto_now_add=True)
 
 	def __str__(self):
-		return self.address
+		return self.name
    
+class CompletedOrder(models.Model):
+	Customer = models.ForeignKey(ShippingAddress,on_delete=models.SET_NULL, null=True)
+	Order = models.ForeignKey(Order,on_delete=models.SET_NULL, null=True)
+  
+	def __str__(self):
+		return self.Customer.name
 
+#class CompleteOrder(models.Model):
+	#items = models.CharField(max_length=200)
             

@@ -13,7 +13,8 @@ from django.http import JsonResponse
 import json 
 from django.views.decorators.csrf import csrf_exempt
 from .utils import cartData
-
+from django.urls import reverse
+from django.http import HttpResponse, HttpResponseRedirect
 
 
 
@@ -114,9 +115,19 @@ def Products(request , slug):
         Description = request.POST['Description']  
         img = request.POST['img']   
         new_products= product(Admins=AdminPage ,PRDname=Name,PRDnumber=Number,quantity=Quantity,price=Price,desc=Description,PRDimage=img)
-        new_products.save()
+        new_products.save() 
+     
     return render(request,"Products.html",context)
 
+def DeleteProduct(request,PRDNumber,slug):
+        DeleteQuery = product.objects.get(PRDnumber = PRDNumber)
+        DeleteQuery.delete()  
+        AdminPage= get_object_or_404(Admins , slug=slug)
+        pro=product.objects.all()
+        context = {'admin': AdminPage , 'prod': pro}
+        return render(request,"Products.html",context)
+       # return HttpResponseRedirect(reverse(render(request,"Products.html",context)))
+        
 
 def Settings(request , slug):
     AdminPage= get_object_or_404(Admins , slug=slug)
@@ -130,6 +141,9 @@ def Settings(request , slug):
     if request.POST.get('StoreName'):
         AdminPage.storename=request.POST.get('StoreName')
         AdminPage.save()
+    if request.POST.get('StoreBackgroundColor'):
+        AdminPage.StoreBackgroundColor=request.POST.get('StoreBackgroundColor')
+        AdminPage.save()    
         
     return render(request,"Settings.html",context)
 
@@ -172,8 +186,8 @@ def UserLoginView(request ,slug):
         Email = request.POST['email'] 
         password = request.POST['password'] 
         Phonenumber = request.POST['phonenumber']   
-       # new_User = User(Name= Name, Email= Email, password = password, Phonenumber= Phonenumber)
-       # new_User.save()  
+        new_User = User(Name= Name, Email= Email, password = password, Phonenumber= Phonenumber)
+        new_User.save()  
         
    
 
@@ -204,11 +218,10 @@ def UpdateItem(request):
 
 
 
-
-
-
-
+     
+     
     return JsonResponse('Item was added', safe=False)
+   
 
 def Checkout(request ,slug):
     AdminPage= get_object_or_404(Admins , slug=slug)
@@ -217,6 +230,18 @@ def Checkout(request ,slug):
     cartItems = data['cartItems']
     order = data['order']
     items = data['items']
+    if request.method == 'POST':
+        Name = request.POST['name'] 
+        Email = request.POST['email'] 
+        Phonenumber = request.POST['phonenumber']   
+        Address = request.POST['address']
+        City = request.POST['city']
+        State = request.POST['state']
+        Zipcode = request.POST['zipcode']
+        new_ShippingAdress = ShippingAddress(name=Name,Phone=Phonenumber,email=Email,address=Address,city=City,state=State,zipcode=Zipcode)
+        new_ShippingAdress.save()
+        Complete_order = CompletedOrder(Customer=new_ShippingAdress,Order=order)
+        Complete_order.save()
 
     context = {'admin': AdminPage ,'items':items, 'order':order, 'cartItems':cartItems}
     return render(request, 'Checkout.html', context)

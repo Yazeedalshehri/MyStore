@@ -116,7 +116,7 @@
                     <th>Number</th>
                     <th>Quantity</th>
                     <th>Price</th>
-                    <th>Rate/5</th>
+                    <th></th>
                   </tr>
                 </thead>
                 <p>
@@ -127,6 +127,7 @@
                   <td data-label="name">{{ i.PRDnumber }}</td>
                   <td data-label="name">{{ i.quantity }}</td>
                   <td data-label="name">{{ i.price }}</td>
+                  <td data-label="name"><a href="DeleteProduct/{{i.PRDnumber}}">Delete</a></td>
                   </tr>   
                   {% endif %}       
                   {% endfor %}

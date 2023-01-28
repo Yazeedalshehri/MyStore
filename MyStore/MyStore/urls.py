@@ -30,12 +30,13 @@ urlpatterns = [
     path('<slug:slug>/Analytics/',views.Analytics),
     path('<slug:slug>/Customers/',views.Customers),
     path('<slug:slug>/Products/',views.Products),
+    path('<slug:slug>/Products/DeleteProduct/<int:PRDNumber>',views.DeleteProduct,name="DeleteProduct"),
     path('<slug:slug>/Orders/',views.Orders),
     path('<slug:slug>/Settings/',views.Settings),
     path('<slug:slug>/store/',views.Store , name='store'),
     path('<slug:slug>/store/Cart/',views.Cart, name='Cart'),
     path('<slug:slug>/store/login',views.UserLoginView),
-    path('yazeed/store/UpdateItem/',views.UpdateItem ),
+    path('store/UpdateItem/',views.UpdateItem ),
     path('<slug:slug>/store/Cart/Checkout',views.Checkout, name='Checkout'),
     
    

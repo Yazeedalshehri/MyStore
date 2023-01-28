@@ -9,9 +9,29 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Cart</title>
 	<link href="{% static '/Styles/CartPageStyle.css' %}" rel="stylesheet">
+
+	<script>
+		
+function getCookie(name) {
+      let cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+          const cookies = document.cookie.split(';');
+          for (let i = 0; i < cookies.length; i++) {
+              const cookie = cookies[i].trim();
+              // Does this cookie string begin with the name we want?
+              if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                  break;
+              }
+          }
+      }
+      return cookieValue;
+  }
+  const csrftoken = getCookie('csrftoken');
+	</script>
 </head>
 <body>
-	<div class="row">
+	<div class="row"> 
 		<div class="col-lg-12">
 			<div class="box-element">
 				
@@ -45,14 +65,14 @@
 				{% for item in items %}
 				<div class="cart-row">
 					<div style="flex:2"><img class="row-image" src="{{item.product.imageURL}}"></div>
-					<div style="flex:2"><p>{{item.product.Name}}</p></div>
+					<div style="flex:2"><p>{{item.product.PRDname}}</p></div>
 					<div style="flex:1"><p>${{item.product.price|floatformat:2}}</p></div>
 					<div style="flex:1">
 						<p class="quantity">{{item.quantity}}</p>
 						<div class="quantity">
-							<img data-product="{{item.product.id}}" data-action="add" class="chg-quantity update-cart" src="{% static  'images/arrow-up.png' %}">
+							<img data-product="{{item.product.PRDnumber}}" data-action="add" class="btn" id="btn" src="{% static  'images/arrow-up.png' %}">
 					
-							<img data-product="{{item.product.id}}" data-action="remove" class="chg-quantity update-cart" src="{% static  'images/arrow-down.png' %}">
+							<img data-product="{{item.product.PRDnumber}}" data-action="remove" class="btn" id="btn" src="{% static  'images/arrow-down.png' %}">
 						</div>
 					</div>
 					<div style="flex:1"><p>${{item.get_total|floatformat:2}}</p></div>
@@ -62,5 +82,6 @@
 		</div>
 	</div>
 </body>
+<script  src="{% static '/JS/Cart.js' %}"></script>
 </html>
 	
