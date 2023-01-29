@@ -12,7 +12,7 @@ from django.views.generic import CreateView
 from django.http import JsonResponse
 import json 
 from django.views.decorators.csrf import csrf_exempt
-from .utils import cartData
+from .utils import cartData 
 from django.urls import reverse
 from django.http import HttpResponse, HttpResponseRedirect
 
@@ -99,8 +99,9 @@ def Customers(request , slug):
 
 def Orders(request , slug):
     AdminPage= get_object_or_404(Admins , slug=slug)
-    
-    context = {'admin': AdminPage }
+    orders = CompletedOrder.objects.all()
+       
+    context = {'admin': AdminPage , 'Orders': orders}
     return render(request, 'Orders.html',context)        
 
 def Products(request , slug):
@@ -205,7 +206,7 @@ def UpdateItem(request):
     customer = request.user.customer
     ProductObject = product.objects.get(PRDnumber=productId)
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
-    orderItem, created = OrderItem.objects.get_or_create(order=order, product=ProductObject)
+    orderItem, created = OrderItem.objects.get_or_create(order=order, Product=ProductObject)
     if action == 'add':
         orderItem.quantity = (orderItem.quantity + 1)
     elif action == 'remove':
@@ -230,6 +231,7 @@ def Checkout(request ,slug):
     cartItems = data['cartItems']
     order = data['order']
     items = data['items']
+    
     if request.method == 'POST':
         Name = request.POST['name'] 
         Email = request.POST['email'] 

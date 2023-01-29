@@ -12,4 +12,3 @@ def cartData(request):
 
 	return {'cartItems':cartItems ,'order':order, 'items':items}
 
-

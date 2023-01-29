@@ -53,6 +53,9 @@ class Users(models.Model):
 	Email=models.CharField(max_length=50)
 	password = models.CharField(max_length=15)
 	Phonenumber= models.IntegerField(max_length=10)
+
+	
+		
 	 
 
 
@@ -90,14 +93,14 @@ class Order(models.Model):
 		return total 
 
 class OrderItem(models.Model):
-	product = models.ForeignKey(product, on_delete=models.SET_NULL, null=True)
+	Product = models.ForeignKey(product, on_delete=models.SET_NULL, null=True)
 	order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True)
 	quantity = models.IntegerField(default=0, null=True, blank=True)
 	date_added = models.DateTimeField(auto_now_add=True)
 
 	@property
 	def get_total(self):
-		total = self.product.price * self.quantity
+		total = self.Product.price * self.quantity
 		return total
 
 class ShippingAddress(models.Model):
@@ -112,6 +115,9 @@ class ShippingAddress(models.Model):
 
 	def __str__(self):
 		return self.name
+
+	def get_Customer_Phone(self):	
+		return self.Phone
    
 class CompletedOrder(models.Model):
 	Customer = models.ForeignKey(ShippingAddress,on_delete=models.SET_NULL, null=True)
@@ -119,6 +125,8 @@ class CompletedOrder(models.Model):
   
 	def __str__(self):
 		return self.Customer.name
+	
+	
 
 #class CompleteOrder(models.Model):
 	#items = models.CharField(max_length=200)
