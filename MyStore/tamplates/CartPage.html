@@ -8,27 +8,12 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Cart</title>
+	<link
+	href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
+	rel="stylesheet"
+  />
 	<link href="{% static '/Styles/CartPageStyle.css' %}" rel="stylesheet">
 
-	<script>
-		
-function getCookie(name) {
-      let cookieValue = null;
-      if (document.cookie && document.cookie !== '') {
-          const cookies = document.cookie.split(';');
-          for (let i = 0; i < cookies.length; i++) {
-              const cookie = cookies[i].trim();
-              // Does this cookie string begin with the name we want?
-              if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                  break;
-              }
-          }
-      }
-      return cookieValue;
-  }
-  const csrftoken = getCookie('csrftoken');
-	</script>
 </head>
 <body>
 	<div class="row"> 
@@ -42,7 +27,7 @@ function getCookie(name) {
 				<br>
 				<table class="table">
 					<tr>
-						<th><h5>Items: <strong>{{order.get_cart_items}}</strong></h5></th>
+						<th><h5>Items: <strong>{{order.get_cart_is}}</strong></h5></th>
 						<th><h5>Total:<strong> ${{order.get_cart_total|floatformat:2}}</strong></h5></th>
 						<th>
 							
@@ -62,20 +47,31 @@ function getCookie(name) {
 					<div style="flex:1"><strong>Quantity</strong></div>
 					<div style="flex:1"><strong>Total</strong></div>
 				</div>
-				{% for item in items %}
+				{% for i in items %}
 				<div class="cart-row">
-					<div style="flex:2"><img class="row-image" src="{{item.product.imageURL}}"></div>
-					<div style="flex:2"><p>{{item.product.PRDname}}</p></div>
-					<div style="flex:1"><p>${{item.product.price|floatformat:2}}</p></div>
+					<div style="flex:2"><img class="row-image" src="{{i.product.imageURL}}"></div>
+					<div style="flex:2"><p>{{i.Product.PRDname}}</p></div>
+					<div style="flex:1"><p>${{i.Product.price|floatformat:2}}</p></div>
 					<div style="flex:1">
-						<p class="quantity">{{item.quantity}}</p>
+						<p class="quantity">{{i.quantity}}</p>
 						<div class="quantity">
-							<img data-product="{{item.product.PRDnumber}}" data-action="add" class="btn" id="btn" src="{% static  'images/arrow-up.png' %}">
-					
-							<img data-product="{{item.product.PRDnumber}}" data-action="remove" class="btn" id="btn" src="{% static  'images/arrow-down.png' %}">
+							<a data-product="{{i.Product.PRDnumber}}" data-action="add" class="btn" id="btn" src="{% static  'images/arrow-up.png' %}"> 
+								<span class="material-icons-sharp">
+									keyboard_arrow_up
+	
+									</span>
+
+							</a>
+							<a data-product="{{i.Product.PRDnumber}}" data-action="remove" class="btn" id="btn" src="{% static  'images/arrow-down.png' %}"> 
+								<span class="material-icons-sharp">
+									keyboard_arrow_down
+									</span>
+
+							</a>
+							
 						</div>
 					</div>
-					<div style="flex:1"><p>${{item.get_total|floatformat:2}}</p></div>
+					<div style="flex:1"><p>${{i.get_total|floatformat:2}}</p></div>
 				</div>
 				{% endfor %}
 			</div>
@@ -83,5 +79,24 @@ function getCookie(name) {
 	</div>
 </body>
 <script  src="{% static '/JS/Cart.js' %}"></script>
+<script>
+			
+function getCookie(name) {
+      let cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+          const cookies = document.cookie.split(';');
+          for (let i = 0; i < cookies.length; i++) {
+              const cookie = cookies[i].trim();
+              // Does this cookie string begin with the name we want?
+              if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                  break;
+              }
+          }
+      }
+      return cookieValue;
+  }
+  const csrftoken = getCookie('csrftoken');
+</script>
 </html>
 	

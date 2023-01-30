@@ -34,7 +34,7 @@ class product(models.Model):
      PRDname = models.CharField(max_length=15)
      PRDnumber = models.IntegerField()
      quantity = models.IntegerField()
-     PRDimage = models.ImageField(upload_to='images')
+     PRDimage = models.FileField(upload_to='images')
      price = models.DecimalField(max_digits=10, decimal_places=2)
      desc = models.CharField(max_length=100)
      def __unicode__(self):
@@ -47,6 +47,9 @@ class product(models.Model):
         return self.price  
      def deleteProduct(self):
        return self.PRDnumber
+     @property
+     def image_url(self):
+        return self.PRDimage.url
 	
 class Users(models.Model):
 	Name= models.CharField(max_length=15)

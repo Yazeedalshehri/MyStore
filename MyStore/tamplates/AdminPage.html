@@ -81,33 +81,22 @@
             <div class="middle">
               <div class="left">
                 <h3>Total Sales</h3>
-                <h1>number</h1>
+                <h1>{{totalSales}}</h1>
               </div>
               
             </div>
            
           </div>
 
-          <!-- EXPENSES -->
-          <div class="expenses">
-            <span class="material-icons-sharp"> bar_chart </span>
-            <div class="middle">
-              <div class="left">
-                <h3>Total Expenses</h3>
-                <h1>number</h1>
-              </div>
-             
-            </div>
-            
-          </div>
+          
 
           <!-- INCOME -->
           <div class="income">
             <span class="material-icons-sharp"> stacked_line_chart </span>
             <div class="middle">
               <div class="left">
-                <h3>Total Income</h3>
-                <h1>Number</h1>
+                <h3>Orders</h3>
+                <h1>{{NumberOfOrders}}</h1>
               </div>
              
             </div>
@@ -116,20 +105,38 @@
         </div>
 
         <div class="recent-orders">
-          <h2>Recent Orders</h2>
-          <table id="recent-orders--table">
+          < <h2>Recent Orders</h2>
+          <table id="Orders-list--table">
             <thead>
               <tr>
-                <th>Product Name</th>
-                <th>Product Number</th>
-                <th>Payment</th>
-                <th>Status</th>
-                <th></th>
+                <th>Order Number</th>
+                <th>Customer Name</th>
+                <th>Date</th>
+                
+                <th>Total</th>
+                
               </tr>
             </thead>
-           
+            <p>
+             {% for i in Orders %}
+              
+              <tr class = "Orders-table" id="Orders-table">
+              <td data-label="name">{{i.Order.id}}</td>
+              <td data-label="name">{{i.Customer.name}}</td>
+              <td data-label="name">{{i.Order.date_ordered}}</td>
+              
+
+              <td data-label="name">{{i.Order.get_cart_total}}</td>
+            
+              </tr>   
+                  
+              {% endfor %}
+              
+            </p>
           </table>
-          <a href="/Orders">Show All</a>
+       
+          </table>
+          <a href="Orders">Show All</a>
         </div>
       </main>
 

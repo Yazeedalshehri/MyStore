@@ -85,7 +85,7 @@
       
               </div>
       
-            <form  method="POST">{% csrf_token %}
+            <form  method="POST" enctype="multipart/form-data">{% csrf_token %}
               <div class="popup-content" id="PopUpMenu">
                 <span class="material-icons-sharp">
                   add_shopping_cart
@@ -94,7 +94,7 @@
                  
                 </span>
                
-                <input type="file" id="img" name="img" accept="image/*" placeholder="Upload Product Image">
+                <input type="file" id="img" name="img"  placeholder="Upload Product Image">
                 <input type="text" name="Name" placeholder="Name">
                 <input type="number" name="Number" placeholder="Number">
                 <input type="number" name="Quantity" placeholder="Quantity">

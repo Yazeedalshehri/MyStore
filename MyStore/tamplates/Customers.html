@@ -115,6 +115,18 @@
                   </tr>
                 </thead>
                 <!-- Add tbody here | JS insertion -->
+                {% for i in CustomerInfo %}
+                <tbody> 
+                <tr>
+                  <td>{{i.Customer.name}}</td>
+                  <td>{{i.Customer.Phone}}</td>
+                  <td>{{i.Customer.city}}</td>
+                    <td>{{i.Order.get_cart_total}}</td>
+                    
+                  </tr>
+                  
+                </tbody>
+                {% endfor %}
               </table>
            
             </div>

@@ -547,7 +547,9 @@ header.shadow #search-icon {
             {% for i in prod %}
             {% if i.Admins.slug == admin.slug %}
                 <div class="box">
-                <img src="{{i.PRDimage_url}}" alt="{{i.PRDname}}"> 
+                 
+                <img src="{{i.PRDimage.url}}" alt="{{i.PRDname}}" width="100%" height="100%"> 
+                
                 <h3 id="Product"  name="Product" value="{{i.PRDname}}">{{ i.PRDname }}</h3>
                 <span id="Price" name="Price">${{ i.price }}</span>
                 <i class='bx bxs-star'></i>
@@ -582,7 +584,7 @@ header.shadow #search-icon {
     </section>
     <!-- Copyright -->
     <div class="copyright">
-        <p>&#169;  All Right Reserved</p>
+        <p>&#169;  All Right Reserved {{admin.storename}}</p>
     </div>
     <!-- Link To Js -->
 <script>

@@ -73,27 +73,41 @@ def Register(request ):
 
 def AdminPage(request , slug):
     AdminPage= get_object_or_404(Admins , slug=slug)
-    ords=Order.objects.all()
-    context = {'admin': AdminPage , 'ords' : ords}
+    Orders = CompletedOrder.objects.all()
+    totalSales = 0
+    NumberOfOrders = 0
+    for i in Orders :
+         
+       totalSales += i.Order.get_cart_total
+       NumberOfOrders += 1
+
+       
+    AvargeSales = totalSales/NumberOfOrders
+    context = {'admin': AdminPage , 'totalSales': totalSales, 'NumberOfOrders': NumberOfOrders , 'AvargeSales' : AvargeSales , 'Orders':Orders}
     return render(request,"AdminPage.html", context)
 
 def Analytics(request , slug):
     AdminPage= get_object_or_404(Admins , slug=slug)
-    ords=Order.objects.all()
-    count = 0
-    AdminPage.totalprice =0
-   # for i in ords :
-    #    if i.Admins.slug == AdminPage.slug:
-    #        AdminPage.totalprice += i.total
-    #        AdminPage.save()    
-    #        count += 1
-    context = {'admin': AdminPage }
-    #, 'ords' : i , 'c':count 
+    Orders = CompletedOrder.objects.all()
+    totalSales = 0
+    NumberOfOrders = 0
+    for i in Orders :
+         
+       totalSales += i.Order.get_cart_total
+       NumberOfOrders += 1
+
+       
+    AvargeSales = totalSales/NumberOfOrders
+    context = {'admin': AdminPage , 'totalSales': totalSales, 'NumberOfOrders': NumberOfOrders , 'AvargeSales' : AvargeSales}
+    
     return render(request,"Analytics.html",context)
 
 def Customers(request , slug):
     AdminPage= get_object_or_404(Admins , slug=slug)
-    context = {'admin': AdminPage}
+    CustomerInfo = CompletedOrder.objects.all()
+
+
+    context = {'admin': AdminPage , 'CustomerInfo': CustomerInfo}
     return render(request,"Customers.html",context)
 
 
@@ -108,13 +122,13 @@ def Products(request , slug):
     AdminPage= get_object_or_404(Admins , slug=slug)
     pro=product.objects.all()
     context = {'admin': AdminPage , 'prod': pro}
-    if request.method == 'POST' :
+    if request.method == 'POST':
         Name = request.POST['Name'] 
         Number = request.POST['Number'] 
         Quantity = request.POST['Quantity'] 
         Price = request.POST['Price']   
         Description = request.POST['Description']  
-        img = request.POST['img']   
+        img = request.FILES['img']   
         new_products= product(Admins=AdminPage ,PRDname=Name,PRDnumber=Number,quantity=Quantity,price=Price,desc=Description,PRDimage=img)
         new_products.save() 
      
