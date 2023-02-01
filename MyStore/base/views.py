@@ -259,7 +259,7 @@ def Checkout(request ,slug):
         Zipcode = request.POST['zipcode']
         new_ShippingAdress = ShippingAddress(name=Name,Phone=Phonenumber,email=Email,address=Address,city=City,state=State,zipcode=Zipcode)
         new_ShippingAdress.save()
-        Complete_order = CompletedOrder(Customer=new_ShippingAdress,Order=order)
+        Complete_order = CompletedOrder(Admins = AdminPage, Customer=new_ShippingAdress,Order=order)
         Complete_order.total=price
         Complete_order.save()
         OrderItem.objects.all().delete()
