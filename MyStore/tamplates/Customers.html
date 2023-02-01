@@ -110,8 +110,8 @@
                     <th>Customer Name</th>
                     <th>Number</th>
                     <th>City</th>
-                    <th>Orders</th>
-                    <th></th>
+                    
+                    <th>WhatsApp</th>
                   </tr>
                 </thead>
                 <!-- Add tbody here | JS insertion -->
@@ -122,8 +122,10 @@
                   <td>{{i.Customer.name}}</td>
                   <td>{{i.Customer.Phone}}</td>
                   <td>{{i.Customer.city}}</td>
-                    <td>{{i.Order.get_cart_total}}</td>
-                    
+                   
+                    <td><a href="https://wa.me/{{i.Customer.Phone}}"><span class="material-icons-sharp">
+                      tty
+                      </span></a> </td>
                   </tr>
                   
                 </tbody>
