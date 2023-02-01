@@ -119,17 +119,17 @@
             </thead>
             <p>
              {% for i in Orders %}
-              
+             {% if i.Admins.slug == admin.slug %}
               <tr class = "Orders-table" id="Orders-table">
               <td data-label="name">{{i.Order.id}}</td>
               <td data-label="name">{{i.Customer.name}}</td>
               <td data-label="name">{{i.Order.date_ordered}}</td>
               
 
-              <td data-label="name">{{i.Order.get_cart_total}}</td>
+              <td data-label="name">{{i.total}}</td>
             
               </tr>   
-                  
+              {% endif %}    
               {% endfor %}
               
             </p>

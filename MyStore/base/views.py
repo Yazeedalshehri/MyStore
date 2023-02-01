@@ -74,15 +74,17 @@ def Register(request ):
 def AdminPage(request , slug):
     AdminPage= get_object_or_404(Admins , slug=slug)
     Orders = CompletedOrder.objects.all()
+    
     totalSales = 0
     NumberOfOrders = 0
+    AvargeSales = 0
     for i in Orders :
-         
-       totalSales += i.total
-       NumberOfOrders += 1
+        if i.Admins.slug == AdminPage.slug: 
+            totalSales += i.total
+            NumberOfOrders += 1
 
-       
-    AvargeSales = totalSales/NumberOfOrders
+    if NumberOfOrders != 0 :   
+        AvargeSales = totalSales/NumberOfOrders
     context = {'admin': AdminPage , 'totalSales': totalSales, 'NumberOfOrders': NumberOfOrders , 'AvargeSales' : AvargeSales , 'Orders':Orders}
     return render(request,"AdminPage.html", context)
 
@@ -90,15 +92,15 @@ def Analytics(request , slug):
     AdminPage= get_object_or_404(Admins , slug=slug)
     Orders = CompletedOrder.objects.all()
     totalSales = 0
-    NumberOfOrders = 1
+    NumberOfOrders = 0
+    AvargeSales = 0
     for i in Orders :
-        
-       totalSales += i.total
-       NumberOfOrders += 1
+        if i.Admins.slug == AdminPage.slug: 
+            totalSales += i.total
+            NumberOfOrders += 1
 
-
-     
-    AvargeSales  = int(totalSales/NumberOfOrders) 
+    if NumberOfOrders != 0 :   
+        AvargeSales = totalSales/NumberOfOrders
     context = {'admin': AdminPage , 'totalSales': totalSales, 'NumberOfOrders': NumberOfOrders , 'AvargeSales' : AvargeSales}
     
     return render(request,"Analytics.html",context)

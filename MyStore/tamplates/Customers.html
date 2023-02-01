@@ -116,6 +116,7 @@
                 </thead>
                 <!-- Add tbody here | JS insertion -->
                 {% for i in CustomerInfo %}
+                {% if i.Admins.slug == admin.slug %}
                 <tbody> 
                 <tr>
                   <td>{{i.Customer.name}}</td>
@@ -126,6 +127,7 @@
                   </tr>
                   
                 </tbody>
+                {% endif %} 
                 {% endfor %}
               </table>
            

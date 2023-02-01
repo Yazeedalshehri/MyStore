@@ -123,6 +123,7 @@ class ShippingAddress(models.Model):
 		return self.Phone
    
 class CompletedOrder(models.Model):
+	Admins = models.ForeignKey(Admins, on_delete=models.CASCADE)
 	Customer = models.ForeignKey(ShippingAddress,on_delete=models.CASCADE, null=True)
 	Order = models.ForeignKey(Order,on_delete=models.SET_NULL, null=True)
 	total = models.DecimalField(max_digits=10, decimal_places=2)
