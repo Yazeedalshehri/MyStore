@@ -65,7 +65,7 @@ class Users(models.Model):
 class Customer(models.Model):
 	customer = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
 	name = models.CharField(max_length=200, null=True)
-	email = models.CharField(max_length=200)
+
 
 	def __str__(self):
 		return self.name
@@ -79,7 +79,7 @@ class Order(models.Model):
 	transaction_id = models.CharField(max_length=100, null=True)
 
 	def __str__(self):
-		return str(self.id)
+		return str(self.customer)
 		
 	
 
@@ -123,9 +123,10 @@ class ShippingAddress(models.Model):
 		return self.Phone
    
 class CompletedOrder(models.Model):
-	Customer = models.ForeignKey(ShippingAddress,on_delete=models.SET_NULL, null=True)
+	Customer = models.ForeignKey(ShippingAddress,on_delete=models.CASCADE, null=True)
 	Order = models.ForeignKey(Order,on_delete=models.SET_NULL, null=True)
-  
+	total = models.DecimalField(max_digits=10, decimal_places=2)
+	
 	def __str__(self):
 		return self.Customer.name
 	

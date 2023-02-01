@@ -78,7 +78,7 @@ def AdminPage(request , slug):
     NumberOfOrders = 0
     for i in Orders :
          
-       totalSales += i.Order.get_cart_total
+       totalSales += i.total
        NumberOfOrders += 1
 
        
@@ -90,14 +90,15 @@ def Analytics(request , slug):
     AdminPage= get_object_or_404(Admins , slug=slug)
     Orders = CompletedOrder.objects.all()
     totalSales = 0
-    NumberOfOrders = 0
+    NumberOfOrders = 1
     for i in Orders :
-         
-       totalSales += i.Order.get_cart_total
+        
+       totalSales += i.total
        NumberOfOrders += 1
 
-       
-    AvargeSales = totalSales/NumberOfOrders
+
+     
+    AvargeSales  = int(totalSales/NumberOfOrders) 
     context = {'admin': AdminPage , 'totalSales': totalSales, 'NumberOfOrders': NumberOfOrders , 'AvargeSales' : AvargeSales}
     
     return render(request,"Analytics.html",context)
@@ -105,7 +106,7 @@ def Analytics(request , slug):
 def Customers(request , slug):
     AdminPage= get_object_or_404(Admins , slug=slug)
     CustomerInfo = CompletedOrder.objects.all()
-
+    
 
     context = {'admin': AdminPage , 'CustomerInfo': CustomerInfo}
     return render(request,"Customers.html",context)
@@ -245,7 +246,7 @@ def Checkout(request ,slug):
     cartItems = data['cartItems']
     order = data['order']
     items = data['items']
-    
+    price = data['price']
     if request.method == 'POST':
         Name = request.POST['name'] 
         Email = request.POST['email'] 
@@ -257,7 +258,9 @@ def Checkout(request ,slug):
         new_ShippingAdress = ShippingAddress(name=Name,Phone=Phonenumber,email=Email,address=Address,city=City,state=State,zipcode=Zipcode)
         new_ShippingAdress.save()
         Complete_order = CompletedOrder(Customer=new_ShippingAdress,Order=order)
+        Complete_order.total=price
         Complete_order.save()
+        OrderItem.objects.all().delete()
 
     context = {'admin': AdminPage ,'items':items, 'order':order, 'cartItems':cartItems}
     return render(request, 'Checkout.html', context)

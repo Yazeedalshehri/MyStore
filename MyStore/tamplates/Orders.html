@@ -124,7 +124,7 @@
                  {% for i in Orders %}
                   
                   <tr class = "Orders-table" id="Orders-table">
-                  <td data-label="name">{{i.Order.id}}</td>
+                  <td data-label="name">{{i.id}}</td>
                   <td data-label="name">{{i.Customer.name}}</td>
                   <td data-label="name">{{i.Order.date_ordered}}</td>
                   <td data-label="name">
@@ -136,9 +136,9 @@
                     
                   </select></td>
 
-                  <td data-label="name">{{i.Order.get_cart_total}}</td>
-                  <th><span style="color: rgba(0, 0, 255, 0.693);"> <button onclick="OrderDetails()">Details</button> </span></th>
-                  </tr>   
+                  <td data-label="name">{{i.total}}</td>
+                  
+                    
                       
                   {% endfor %}
                   
