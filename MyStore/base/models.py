@@ -19,6 +19,11 @@ class Admins(models.Model):
     StoreBackgroundColor= models.CharField(max_length=10)
     totalprice=models.DecimalField(max_digits=10 , decimal_places=2, default=0)
     slug = models.SlugField(blank=True , null=True)
+    storeEmail = models.CharField(max_length=50)
+    StorePhone = models.CharField(max_length=50)
+
+
+	
 
     def __str__(self) :
         return  self.username
@@ -51,15 +56,6 @@ class product(models.Model):
      def image_url(self):
         return self.PRDimage.url
 	
-class Users(models.Model):
-	Name= models.CharField(max_length=15)
-	Email=models.CharField(max_length=50)
-	password = models.CharField(max_length=15)
-	Phonenumber= models.IntegerField(max_length=10)
-
-	
-		
-	 
 
 
 class Customer(models.Model):
@@ -133,6 +129,4 @@ class CompletedOrder(models.Model):
 	
 	
 
-#class CompleteOrder(models.Model):
-	#items = models.CharField(max_length=200)
             

@@ -31,27 +31,16 @@ def Cart(request):
 
 
 def Login(request):
+    admins = Admins.objects.all()
     if request.method == 'POST' :
         username = request.POST['username'] 
         password = request.POST['password']
-        mydata= Admins.objects.get(slug = username , password = password) 
-        return redirect (AdminPage , slug = mydata.slug )
-        
+        for i in admins:
+            if i.username == username and i.password==password :
+                mydata= Admins.objects.get(slug = username , password = password) 
+                return redirect (AdminPage , slug = mydata.slug )
+       
     return render(request,"Login.html")
-
-def signup (request):
-    if request.method == 'POST':
-        form = AdminsForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect(AdminPage , slug = form.username)
-    else:
-        form = AdminsForm()
-    return render(request,
-                  'Register.html',
-                  {'form': form}
-
-                  )
 
 
 def Register(request ):
@@ -100,7 +89,7 @@ def Analytics(request , slug):
             NumberOfOrders += 1
 
     if NumberOfOrders != 0 :   
-        AvargeSales = totalSales/NumberOfOrders
+        AvargeSales = int(totalSales/NumberOfOrders)
     context = {'admin': AdminPage , 'totalSales': totalSales, 'NumberOfOrders': NumberOfOrders , 'AvargeSales' : AvargeSales}
     
     return render(request,"Analytics.html",context)
@@ -158,6 +147,12 @@ def Settings(request , slug):
         AdminPage.save()    
     if request.POST.get('StoreName'):
         AdminPage.storename=request.POST.get('StoreName')
+        AdminPage.save()
+    if request.POST.get('email'):
+        AdminPage.storeEmail=request.POST.get('email')
+        AdminPage.save()
+    if request.POST.get('Phone'):
+        AdminPage.StorePhone=request.POST.get('Phone')
         AdminPage.save()
     if request.POST.get('StoreBackgroundColor'):
         AdminPage.StoreBackgroundColor=request.POST.get('StoreBackgroundColor')
