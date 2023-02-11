@@ -52,9 +52,6 @@ def Register(request ):
        storename = request.POST['storename'] 
        new_admin = Admins(username=username, email=email, password=password,phonenumber=phonenumber,storename=storename )
        new_admin.save()
-       if request.POST.get('category'):
-            new_admin.category=request.POST.get('category')
-            new_admin.save()
        return redirect (AdminPage , slug = username)
     return render(request,"Register.html")
 
@@ -173,7 +170,7 @@ def Store(request , slug ):
     products = product.objects.all()
     context = {'admin': AdminPage , 'prod': pro ,'products':products, 'cartItems':cartItems}
        
-    return render(request,"carstore.html",context)
+    return render(request,"Store.html",context)
 
 def Cart(request , slug):
     AdminPage= get_object_or_404(Admins , slug=slug)

@@ -13,7 +13,6 @@ class Admins(models.Model):
     password = models.CharField(max_length=15)
     phonenumber = models.CharField(max_length=10)
     storename = models.CharField(max_length=10)
-    category= models.CharField(max_length=50)
     storecolor=models.CharField(max_length=10)
     StoreTextColor=models.CharField(max_length=10)
     StoreBackgroundColor= models.CharField(max_length=10)
