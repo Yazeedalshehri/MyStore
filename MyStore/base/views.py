@@ -151,9 +151,7 @@ def Settings(request , slug):
     if request.POST.get('Phone'):
         AdminPage.StorePhone=request.POST.get('Phone')
         AdminPage.save()
-    if request.POST.get('StoreBackgroundColor'):
-        AdminPage.StoreBackgroundColor=request.POST.get('StoreBackgroundColor')
-        AdminPage.save()    
+     
         
     return render(request,"Settings.html",context)
 

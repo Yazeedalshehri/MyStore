@@ -15,7 +15,6 @@ class Admins(models.Model):
     storename = models.CharField(max_length=10)
     storecolor=models.CharField(max_length=10)
     StoreTextColor=models.CharField(max_length=10)
-    StoreBackgroundColor= models.CharField(max_length=10)
     totalprice=models.DecimalField(max_digits=10 , decimal_places=2, default=0)
     slug = models.SlugField(blank=True , null=True)
     storeEmail = models.CharField(max_length=50)
