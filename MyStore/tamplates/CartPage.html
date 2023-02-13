@@ -18,9 +18,9 @@
 <body>
 	<div class="row"> 
 		<div class="col-lg-12">
-			<div class="box-element">
+			<div class="Total">
 				
-				<a  class="btn btn-outline-dark" href=" /{{admin.slug}}/store/ ">&#x2190; Continue Shopping</a>
+				<a  class="back-to-store" href=" /{{admin.slug}}/store/ ">&#x2190; Continue Shopping</a>
 				
 				
 				<br>
@@ -29,17 +29,14 @@
 					<tr>
 						<th><h5>Items: <strong>{{order.get_cart_is}}</strong></h5></th>
 						<th><h5>Total:<strong> ${{order.get_cart_total|floatformat:2}}</strong></h5></th>
-						<th>
-							
-							<a  style="float:right; margin:5px;" class="btn btn-success" href="/{{admin.slug}}/store/Cart/Checkout">Checkout</a>
-						</th>
+						
 					</tr>
 				</table>
-
+				<a  style="float:right; margin:5px;" class="Checkout" href="/{{admin.slug}}/store/Cart/Checkout">Checkout</a>
 			</div>
 
 			<br>
-			<div class="box-element">
+			<div class="Item-table">
 				<div class="cart-row">
 					<div style="flex:2"></div>
 					<div style="flex:2"><strong>Item</strong></div>
