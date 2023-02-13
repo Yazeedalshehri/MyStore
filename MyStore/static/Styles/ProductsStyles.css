@@ -428,6 +428,12 @@ main .customer-info {
   border-radius: 5px;
 }
 
+.popup-content > .Description {
+  margin: 20px auto;
+  height: 120px;
+
+}
+
 
 
 .Add-Product-button{
