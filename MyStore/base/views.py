@@ -36,8 +36,8 @@ def Login(request):
         username = request.POST['username'] 
         password = request.POST['password']
         for i in admins:
-            if i.username == username and i.password==password :
-                mydata= Admins.objects.get(slug = username , password = password) 
+            if i.username == username.lower() and i.password==password :
+                mydata= Admins.objects.get(slug = username.lower() , password = password) 
                 return redirect (AdminPage , slug = mydata.slug )
        
     return render(request,"Login.html")
@@ -50,9 +50,9 @@ def Register(request ):
        password = request.POST['password'] 
        phonenumber = request.POST['phonenumber'] 
        storename = request.POST['storename'] 
-       new_admin = Admins(username=username, email=email, password=password,phonenumber=phonenumber,storename=storename )
+       new_admin = Admins(username=username.lower(), email=email, password=password,phonenumber=phonenumber,storename=storename )
        new_admin.save()
-       return redirect (AdminPage , slug = username)
+       return redirect (AdminPage , slug = username.lower())
     return render(request,"Register.html")
 
 

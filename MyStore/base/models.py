@@ -8,8 +8,8 @@ import datetime
 
 
 class Admins(models.Model):
-    username = models.CharField(max_length=15)
-    email = models.CharField(max_length=50)
+    username = models.CharField(max_length=15,unique=True)
+    email = models.CharField(max_length=50,unique=True)
     password = models.CharField(max_length=15)
     phonenumber = models.CharField(max_length=10)
     storename = models.CharField(max_length=10)
@@ -35,7 +35,7 @@ class Admins(models.Model):
 class product(models.Model):
      Admins = models.ForeignKey(Admins, on_delete=models.CASCADE)
      PRDname = models.CharField(max_length=15)
-     PRDnumber = models.IntegerField()
+     PRDnumber = models.IntegerField(unique=True)
      quantity = models.IntegerField()
      PRDimage = models.FileField(upload_to='images')
      price = models.DecimalField(max_digits=10, decimal_places=2)
